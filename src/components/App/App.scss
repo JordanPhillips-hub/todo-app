@@ -40,4 +40,6 @@ picture {
   display: grid;
   place-items: center;
   margin-top: px-rem(70);
+  margin-inline: auto;
+  max-width: 540px;
 }

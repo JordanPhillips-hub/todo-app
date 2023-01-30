@@ -38,4 +38,6 @@ picture {
   display: grid;
   place-items: center;
   margin-top: 4.375rem;
+  margin-inline: auto;
+  max-width: 540px;
 }/*# sourceMappingURL=App.css.map */
