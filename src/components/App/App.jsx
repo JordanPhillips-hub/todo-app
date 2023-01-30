@@ -1,14 +1,10 @@
-import './App.scss';
+import "./App.scss";
+import Header from "../Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <div>
-          <h1>TODO</h1>
-          {/* LIGHT THEME COMPONENT */}
-        </div>
-      </header>
+      <Header />
     </div>
   );
 }
