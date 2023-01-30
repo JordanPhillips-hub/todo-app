@@ -1,6 +1,12 @@
+import './globals.scss';
+
 function App() {
   return (
-    <div className="App"></div>
+    <div className="App">
+      <h1>
+        hello
+      </h1>
+    </div>
   );
 }
 
