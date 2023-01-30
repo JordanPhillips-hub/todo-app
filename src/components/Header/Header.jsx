@@ -6,7 +6,7 @@ function Header() {
     <header>
       <>
         <h1>TODO</h1>
-        <ThemeToggle />
+        <ThemeToggle src="" />
       </>
     </header>
   );
