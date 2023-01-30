@@ -1,12 +1,13 @@
+import ThemeToggle from "../ThemeToggle";
 import "./Header.scss";
 
 function Header() {
   return (
     <header>
-      <div>
+      <>
         <h1>TODO</h1>
-        {/* LIGHT THEME COMPONENT */}
-      </div>
+        <ThemeToggle />
+      </>
     </header>
   );
 }
