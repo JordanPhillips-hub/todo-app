@@ -1,6 +1,6 @@
 import React from "react";
-import DarkTheme from "../assets/images/icon-moon.svg";
-import LightTheme from "../assets/images/icon-sun.svg";
+import Moon from "../assets/images/icon-moon.svg";
+import Sun from "../assets/images/icon-sun.svg";
 
 class ThemeToggle extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class ThemeToggle extends React.Component {
       <div className="theme-toggle-container">
         <img
           onClick={this.toggleTheme}
-          src={theme === "light" ? DarkTheme : LightTheme}
+          src={theme === "light" ? Moon : Sun}
           alt="Toggle Theme"
         />
       </div>
