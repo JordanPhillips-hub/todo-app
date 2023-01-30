@@ -18,8 +18,9 @@ html:focus-within {
 }
 
 body {
-  background-image: url("./assets/images/bg-desktop-light.jpg");
+  background-image: url("../../assets/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
+  background-size: 100%;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -32,4 +33,10 @@ img,
 picture {
   height: auto;
   max-width: 100%;
+}
+
+.App {
+  display: grid;
+  place-items: center;
+  margin-top: 70px;
 }
