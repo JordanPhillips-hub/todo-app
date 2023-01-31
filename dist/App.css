@@ -45,22 +45,31 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
+  min-height: 100vh;
 }
 
 /* Make images easier to work with */
 img,
 picture {
-  height: auto;
   max-width: 100%;
+  height: auto;
 }
 
 .App {
   display: grid;
   place-items: center;
-  margin-top: 4.375rem;
-  margin-inline: auto;
   max-width: 564px;
-  padding-inline: 1.5rem;
+  margin-top: 70px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+.App header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.App header h1 {
+  color: var(--clr-white);
 }/*# sourceMappingURL=App.css.map */

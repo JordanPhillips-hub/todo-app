@@ -51,13 +51,13 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-size: px-rem(18);
   font-weight: 400;
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
+  min-height: 100vh;
 }
 
 /* Make images easier to work with */
 img,
 picture {
-  height: auto;
   max-width: 100%;
+  height: auto;
 }

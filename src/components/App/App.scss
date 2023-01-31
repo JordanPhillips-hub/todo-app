@@ -3,8 +3,19 @@
 .App {
   display: grid;
   place-items: center;
-  margin-top: px-rem(70);
-  margin-inline: auto;
   max-width: 564px;
-  padding-inline: px-rem(24);
+  margin-top: 70px;
+  margin-inline: auto;
+  padding-inline: 24px;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    h1 {
+      color: var(--clr-white);
+    }
+  }
 }
