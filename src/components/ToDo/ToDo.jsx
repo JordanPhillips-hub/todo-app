@@ -1,4 +1,5 @@
 import React from "react";
+import "../ToDo/ToDo.scss";
 
 class ToDo extends React.Component {
   constructor() {
@@ -7,8 +8,12 @@ class ToDo extends React.Component {
 
   render() {
     return (
-      <main>
-        <input type="text" />
+      <main className="todo">
+        <input
+          className="todo__input"
+          type="text"
+          placeholder="Create a new todo..."
+        />
       </main>
     );
   }
