@@ -9,5 +9,7 @@
     font-size: px-rem(18);
     letter-spacing: -0.25px;
     width: inherit;
+    border: 1px solid var(--clr-borders);
+    border-radius: var(--br-sm);
   }
 }
