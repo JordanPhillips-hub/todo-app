@@ -69,4 +69,5 @@ picture {
   width: inherit;
   border: 1px solid var(--clr-borders);
   border-radius: var(--br-sm);
+  padding: 1.11em 0 1.11em 1.33em;
 }/*# sourceMappingURL=ToDo.css.map */
