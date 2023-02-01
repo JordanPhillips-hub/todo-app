@@ -70,4 +70,9 @@ picture {
   border: 1px solid var(--clr-borders);
   border-radius: var(--br-sm);
   padding: 1.11em 0 1.11em 1.33em;
+}
+.todo__input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--clr-text-primary);
+  transform: scale(1.02);
 }/*# sourceMappingURL=ToDo.css.map */
