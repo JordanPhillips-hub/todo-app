@@ -1,4 +1,5 @@
 import React from "react";
+import checkMark from "../../assets/images/icon-check.svg";
 import "../ToDo/ToDo.scss";
 
 class ToDo extends React.Component {
@@ -25,55 +26,58 @@ class ToDo extends React.Component {
         />
 
         <ul className="todoList">
-          <div className="todoList__item">
-            <div>
-              <input
-                className="todoList__checkbox"
-                type="radio"
-                name=""
-                id=""
-              />
+          <div className="listItemContainer">
+            <div className="radio">
+              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <input className="radio__checkbox" type="radio" />
             </div>
 
-            <li>Complete online JavaScript course</li>
+            <li className="item">Complete online JavaScript course</li>
           </div>
 
-          <div className="todoList__item">
-            <div>
-              <input type="radio" name="" id="" />
+          <div className="listItemContainer">
+            <div className="radio">
+              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <input className="radio__checkbox" type="radio" />
             </div>
 
-            <li>Jog around the park 3x</li>
+            <li className="item">Jog around the park 3x</li>
           </div>
 
-          <div className="todoList__item">
-            <div>
-              <input type="radio" name="" id="" />
+          <div className="listItemContainer">
+            <div className="radio">
+              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <input className="radio__checkbox" type="radio" />
             </div>
 
-            <li>10 minutes meditation</li>
+            <li className="item">10 minutes meditation</li>
           </div>
 
-          <div className="todoList__item">
-            <div>
-              <input type="radio" name="" id="" />
+          <div className="listItemContainer">
+            <div className="radio">
+              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <input className="radio__checkbox" type="radio" />
             </div>
-            <li>Read for 1 hour</li>
+
+            <li className="item">Read for 1 hour</li>
           </div>
 
-          <div className="todoList__item">
-            <div>
-              <input type="radio" name="" id="" />
+          <div className="listItemContainer">
+            <div className="radio">
+              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <input className="radio__checkbox" type="radio" />
             </div>
 
-            <li>Pick up groceries</li>
+            <li className="item">Pick up groceries</li>
           </div>
 
-          <div className="todoList__item">
-            <div>
-              <input type="radio" name="" id="" />
+          <div className="listItemContainer">
+            <div className="radio">
+              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <input className="radio__checkbox" type="radio" />
             </div>
-            <li>Complete Todo App on Frontend Mentor</li>
+
+            <li className="item">Complete Todo App on Frontend Mentor</li>
           </div>
         </ul>
       </form>

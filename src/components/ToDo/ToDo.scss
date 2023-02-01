@@ -3,7 +3,7 @@
 .todo {
   width: inherit;
 
-  & :is(.todo__input, .todoList__item) {
+  & :is(.todo__input, .listItemContainer) {
     color: var(--clr-text-primary);
     font-size: px-rem(18);
     padding: 1.11em 0 1.11em 1.33em;
@@ -28,42 +28,54 @@
     background-color: var(--clr-item-bg);
     border-radius: var(--br-sm);
 
-    &__item {
+    .listItemContainer {
       border-bottom: 1px solid var(--clr-borders);
       display: flex;
       align-items: center;
       gap: 24px;
-    }
 
-    &__checkbox {
-      -webkit-appearance: none;
-      appearance: none;
-      display: grid;
-      place-content: center;
-      background-color: var(--clr-white);
-      width: 1.86em;
-      height: 1.86em;
-      border: 1px solid var(--clr-borders);
-      border-radius: 50%;
-    }
+      .radio {
+        position: relative;
 
-    &__checkbox::before {
-      content: "";
-      width: 0.857em;
-      height: 0.857em;
-      border-radius: 50%;
-      transform: scale(0);
-      transition: 120ms transform ease-in-out;
-      box-shadow: inset 1em 1em var();
-    }
+        &__checkbox {
+          -webkit-appearance: none;
+          appearance: none;
+          display: grid;
+          place-content: center;
+          background-color: var(--clr-item-bg);
+          width: 1.86em;
+          height: 1.86em;
+          border: 1px solid var(--clr-borders);
+          border-radius: 50%;
+          cursor: pointer;
+        }
 
-    &__checkbox:checked::before {
-      transform: scale(2);
-      background: linear-gradient(
-        to right,
-        var(--clr-check-background-blue) 0%,
-        var(--clr-check-background-purple) 100%
-      );
+        &__checkbox::before {
+          content: "";
+          width: 0.857em;
+          height: 0.857em;
+          border-radius: 50%;
+          transform: scale(0);
+          transition: 120ms transform ease-in-out;
+        }
+
+        &__checkbox:checked::before {
+          transform: scale(2.1);
+          background: linear-gradient(
+            to right,
+            var(--clr-check-background-blue) 0%,
+            var(--clr-check-background-purple) 100%
+          );
+        }
+
+        &__checkMark {
+          pointer-events: none;
+          z-index: 100;
+          position: absolute;
+          bottom: 7px;
+          right: 7px;
+        }
+      }
     }
   }
 }
