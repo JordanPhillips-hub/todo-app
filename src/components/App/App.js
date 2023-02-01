@@ -1,5 +1,6 @@
 import React from "react";
 import useLocalStorage from "use-local-storage";
+import ToDo from "../ToDo/ToDo";
 import Moon from "../../assets/images/icon-moon.svg";
 import Sun from "../../assets/images/icon-sun.svg";
 import "./App.scss";
@@ -22,6 +23,7 @@ function App() {
           alt="Toggle Theme"
         />
       </header>
+      <ToDo />
     </div>
   );
 }
