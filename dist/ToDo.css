@@ -66,18 +66,30 @@ ol {
 .todo {
   width: inherit;
 }
-.todo__input {
-  background-color: var(--clr-item-bg);
+.todo :is(.todo__input, .todoList__item) {
   color: var(--clr-text-primary);
   font-size: 1.125rem;
+  padding: 1.11em 0 1.11em 1.33em;
+}
+.todo__input {
+  background-color: var(--clr-item-bg);
   letter-spacing: -0.25px;
   width: inherit;
   border: 1px solid var(--clr-borders);
   border-radius: var(--br-sm);
-  padding: 1.11em 0 1.11em 1.33em;
+  margin-bottom: 24px;
 }
 .todo__input:focus {
   outline: none;
   box-shadow: 0 0 10px var(--clr-text-primary);
   transform: scale(1.02);
+}
+.todo .todoList {
+  background-color: var(--clr-item-bg);
+  border-radius: var(--br-sm);
+}
+.todo .todoList__item {
+  border-bottom: 1px solid var(--clr-borders);
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=ToDo.css.map */
