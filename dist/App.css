@@ -58,6 +58,11 @@ picture {
   height: auto;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+
 .App {
   background-color: transparent;
   display: grid;

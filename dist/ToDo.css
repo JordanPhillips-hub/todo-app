@@ -58,6 +58,11 @@ picture {
   height: auto;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+
 .todo {
   width: inherit;
 }
