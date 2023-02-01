@@ -1,7 +1,7 @@
 @use "../../styles/styles.scss" as *;
 
 .todo {
-  width: 100%;
+  width: inherit;
 
   &__input {
     background-color: var(--clr-item-bg);

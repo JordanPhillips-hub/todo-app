@@ -8,13 +8,13 @@ class ToDo extends React.Component {
 
   render() {
     return (
-      <main className="todo">
+      <form className="todo">
         <input
           className="todo__input"
           type="text"
           placeholder="Create a new todo..."
         />
-      </main>
+      </form>
     );
   }
 }

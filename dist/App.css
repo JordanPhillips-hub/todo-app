@@ -69,10 +69,10 @@ picture {
   grid-row-gap: 40px;
 }
 .App header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 .App header h1 {
   color: var(--clr-white);

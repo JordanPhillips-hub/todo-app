@@ -23,7 +23,10 @@ function App() {
           alt="Toggle Theme"
         />
       </header>
-      <ToDo />
+
+      <main>
+        <ToDo />
+      </main>
     </div>
   );
 }

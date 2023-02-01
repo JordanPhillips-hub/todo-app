@@ -59,7 +59,7 @@ picture {
 }
 
 .todo {
-  width: 100%;
+  width: inherit;
 }
 .todo__input {
   background-color: var(--clr-item-bg);
