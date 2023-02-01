@@ -41,7 +41,7 @@ html:focus-within {
 body {
   background-image: url("../assets/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 300px;
   background-color: var(--clr-body-bg);
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.125rem;
@@ -65,6 +65,7 @@ picture {
   margin-top: 70px;
   margin-inline: auto;
   padding-inline: 24px;
+  grid-row-gap: 40px;
 }
 .App header {
   display: flex;
