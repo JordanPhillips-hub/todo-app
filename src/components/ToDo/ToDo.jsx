@@ -1,5 +1,6 @@
 import React from "react";
 import "../ToDo/ToDo.scss";
+import TodoList from "./ToDoList";
 
 class ToDo extends React.Component {
   constructor() {
@@ -23,6 +24,8 @@ class ToDo extends React.Component {
           type="text"
           placeholder="Create a new todo..."
         />
+
+        <TodoList />
       </form>
     );
   }
