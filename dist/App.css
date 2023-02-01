@@ -68,6 +68,9 @@ picture {
   padding-inline: 24px;
   grid-row-gap: 40px;
 }
+.App :is(header, main) {
+  width: 100%;
+}
 .App header {
   width: 100%;
   display: flex;
