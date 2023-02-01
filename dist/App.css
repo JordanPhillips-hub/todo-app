@@ -72,4 +72,7 @@ picture {
 }
 .App header h1 {
   color: var(--clr-white);
+  letter-spacing: 15px;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 10vw, 1.125rem);
 }/*# sourceMappingURL=App.css.map */

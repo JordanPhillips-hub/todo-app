@@ -16,6 +16,10 @@
 
     h1 {
       color: var(--clr-white);
+      letter-spacing: 15px;
+      font-weight: 700;
+      // FIX
+      font-size: clamp(px-rem(40), 10vw, px-rem(18));
     }
   }
 }
