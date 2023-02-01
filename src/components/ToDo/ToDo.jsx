@@ -27,7 +27,12 @@ class ToDo extends React.Component {
         <ul className="todoList">
           <div className="todoList__item">
             <div>
-              <input className="checkbox" type="radio" name="" id="" />
+              <input
+                className="todoList__checkbox"
+                type="radio"
+                name=""
+                id=""
+              />
             </div>
 
             <li>Complete online JavaScript course</li>

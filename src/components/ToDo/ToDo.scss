@@ -32,6 +32,38 @@
       border-bottom: 1px solid var(--clr-borders);
       display: flex;
       align-items: center;
+      gap: 24px;
+    }
+
+    &__checkbox {
+      -webkit-appearance: none;
+      appearance: none;
+      display: grid;
+      place-content: center;
+      background-color: var(--clr-white);
+      width: 1.86em;
+      height: 1.86em;
+      border: 1px solid var(--clr-borders);
+      border-radius: 50%;
+    }
+
+    &__checkbox::before {
+      content: "";
+      width: 0.857em;
+      height: 0.857em;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em var();
+    }
+
+    &__checkbox:checked::before {
+      transform: scale(2);
+      background: linear-gradient(
+        to right,
+        var(--clr-check-background-blue) 0%,
+        var(--clr-check-background-purple) 100%
+      );
     }
   }
 }

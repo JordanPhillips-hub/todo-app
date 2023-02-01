@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 :root {
   --clr-bright-blue: hsl(220, 98%, 61%);
-  --clr-check-background: linear-gradient hsl(192, 100%, 67%) to
-    hsl(280, 87%, 65%);
+  --clr-check-background-blue: hsl(192, 100%, 67%);
+  --clr-check-background-purple: hsl(280, 87%, 65%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-text-secondary: hsl(235, 9%, 61%);
   --clr-text-primary: hsl(235, 19%, 35%);
@@ -92,4 +92,30 @@ ol {
   border-bottom: 1px solid var(--clr-borders);
   display: flex;
   align-items: center;
+  gap: 24px;
+}
+.todo .todoList__checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  display: grid;
+  place-content: center;
+  background-color: var(--clr-white);
+  width: 1.86em;
+  height: 1.86em;
+  border: 1px solid var(--clr-borders);
+  border-radius: 50%;
+}
+.todo .todoList__checkbox::before {
+  content: "";
+  width: 0.857em;
+  height: 0.857em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var();
+}
+.todo .todoList__checkbox:checked::before {
+  transform: scale(2);
+  background: linear-gradient(to right, var(--clr-check-background-blue) 0%, var(--clr-check-background-purple) 100%);
 }/*# sourceMappingURL=ToDo.css.map */

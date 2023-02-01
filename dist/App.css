@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 :root {
   --clr-bright-blue: hsl(220, 98%, 61%);
-  --clr-check-background: linear-gradient hsl(192, 100%, 67%) to
-    hsl(280, 87%, 65%);
+  --clr-check-background-blue: hsl(192, 100%, 67%);
+  --clr-check-background-purple: hsl(280, 87%, 65%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-text-secondary: hsl(235, 9%, 61%);
   --clr-text-primary: hsl(235, 19%, 35%);
