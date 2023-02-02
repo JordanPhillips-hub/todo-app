@@ -120,12 +120,19 @@ ol {
 }
 .todo .todoList .listItemContainer .radio__checkbox:checked::before {
   transform: scale(2.1);
+}
+.todo .todoList .listItemContainer .radio--showBackground {
   background: linear-gradient(to right, var(--clr-check-background-blue) 0%, var(--clr-check-background-purple) 100%);
+  border: none;
 }
 .todo .todoList .listItemContainer .radio__checkMark {
+  transform: scale(0);
   pointer-events: none;
-  z-index: 100;
+  z-index: 1;
   position: absolute;
   bottom: 7px;
   right: 7px;
+}
+.todo .todoList .listItemContainer .radio__checkMark--showCheckMark {
+  transform: scale(1);
 }/*# sourceMappingURL=ToDo.css.map */
