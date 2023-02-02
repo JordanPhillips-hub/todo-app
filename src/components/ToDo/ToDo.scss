@@ -61,19 +61,28 @@
 
         &__checkbox:checked::before {
           transform: scale(2.1);
+        }
+
+        &--showBackground {
           background: linear-gradient(
             to right,
             var(--clr-check-background-blue) 0%,
             var(--clr-check-background-purple) 100%
           );
+          border: none;
         }
 
         &__checkMark {
+          transform: scale(0);
           pointer-events: none;
-          z-index: 100;
+          z-index: 1;
           position: absolute;
           bottom: 7px;
           right: 7px;
+
+          &--showCheckMark {
+            transform: scale(1);
+          }
         }
       }
     }

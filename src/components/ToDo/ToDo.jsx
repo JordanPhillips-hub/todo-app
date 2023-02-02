@@ -15,6 +15,13 @@ class ToDo extends React.Component {
       text: value,
     });
 
+  handleCompletedToggle = (e) => {
+    const { target: radioButton } = e;
+    const checkMark = radioButton.nextSibling;
+    radioButton.classList.toggle("radio--showBackground");
+    checkMark.classList.toggle("radio__checkMark--showCheckMark");
+  };
+
   render() {
     return (
       <form className="todo">
@@ -28,8 +35,12 @@ class ToDo extends React.Component {
         <ul className="todoList">
           <div className="listItemContainer">
             <div className="radio">
+              <input
+                onClick={this.handleCompletedToggle}
+                className="radio__checkbox"
+                type="radio"
+              />
               <img className="radio__checkMark" src={checkMark} alt="checked" />
-              <input className="radio__checkbox" type="radio" />
             </div>
 
             <li className="item">Complete online JavaScript course</li>
@@ -37,8 +48,12 @@ class ToDo extends React.Component {
 
           <div className="listItemContainer">
             <div className="radio">
+              <input
+                onClick={this.handleCompletedToggle}
+                className="radio__checkbox"
+                type="radio"
+              />
               <img className="radio__checkMark" src={checkMark} alt="checked" />
-              <input className="radio__checkbox" type="radio" />
             </div>
 
             <li className="item">Jog around the park 3x</li>
@@ -46,8 +61,12 @@ class ToDo extends React.Component {
 
           <div className="listItemContainer">
             <div className="radio">
+              <input
+                onClick={this.handleCompletedToggle}
+                className="radio__checkbox"
+                type="radio"
+              />
               <img className="radio__checkMark" src={checkMark} alt="checked" />
-              <input className="radio__checkbox" type="radio" />
             </div>
 
             <li className="item">10 minutes meditation</li>
@@ -55,8 +74,12 @@ class ToDo extends React.Component {
 
           <div className="listItemContainer">
             <div className="radio">
+              <input
+                onClick={this.handleCompletedToggle}
+                className="radio__checkbox"
+                type="radio"
+              />
               <img className="radio__checkMark" src={checkMark} alt="checked" />
-              <input className="radio__checkbox" type="radio" />
             </div>
 
             <li className="item">Read for 1 hour</li>
@@ -64,8 +87,12 @@ class ToDo extends React.Component {
 
           <div className="listItemContainer">
             <div className="radio">
+              <input
+                onClick={this.handleCompletedToggle}
+                className="radio__checkbox"
+                type="radio"
+              />
               <img className="radio__checkMark" src={checkMark} alt="checked" />
-              <input className="radio__checkbox" type="radio" />
             </div>
 
             <li className="item">Pick up groceries</li>
@@ -73,8 +100,12 @@ class ToDo extends React.Component {
 
           <div className="listItemContainer">
             <div className="radio">
+              <input
+                onClick={this.handleCompletedToggle}
+                className="radio__checkbox"
+                type="radio"
+              />
               <img className="radio__checkMark" src={checkMark} alt="checked" />
-              <input className="radio__checkbox" type="radio" />
             </div>
 
             <li className="item">Complete Todo App on Frontend Mentor</li>
