@@ -40,10 +40,6 @@ html:focus-within {
 }
 
 body {
-  background-image: url("../assets/images/bg-desktop-light.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 300px;
-  background-color: var(--clr-body-bg);
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
@@ -63,25 +59,32 @@ ol {
   list-style: none;
 }
 
-.App {
+.appBg {
+  background-image: url("../../assets/images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 300px;
+  background-color: var(--clr-body-bg);
+  min-height: 100vh;
+}
+.appBg .app {
   background-color: transparent;
   display: grid;
   place-items: center;
   max-width: 564px;
-  margin-top: 70px;
+  padding-top: 70px;
   margin-inline: auto;
   padding-inline: 24px;
   grid-row-gap: 40px;
 }
-.App :is(header, main) {
+.appBg .app :is(header, main) {
   width: 100%;
 }
-.App header {
+.appBg .app header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.App header h1 {
+.appBg .app header h1 {
   color: var(--clr-white);
   letter-spacing: 15px;
   font-weight: 700;

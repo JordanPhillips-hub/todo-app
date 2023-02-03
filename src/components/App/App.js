@@ -14,19 +14,22 @@ function App() {
   };
 
   return (
-    <div className="App" data-theme={theme}>
-      <header>
-        <h1>TODO</h1>
-        <img
-          onClick={toggleTheme}
-          src={theme === "light" ? Moon : Sun}
-          alt="Toggle Theme"
-        />
-      </header>
+    <div className="appBg" data-theme={theme}>
+      <div className="app">
+        <header>
+          <h1>TODO</h1>
+          <img
+            onClick={toggleTheme}
+            src={theme === "light" ? Moon : Sun}
+            alt="Toggle Theme"
+          />
+        </header>
 
-      <main>
-        <ToDo />
-      </main>
+        <main>
+          <ToDo />
+        </main>
+      </div>
+
     </div>
   );
 }
