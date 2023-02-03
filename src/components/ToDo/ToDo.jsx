@@ -15,11 +15,14 @@ class ToDo extends React.Component {
       text: value,
     });
 
-  handleCompletedToggle = (e) => {
+  handleCompleteItem = (e) => {
     const { target: radioButton } = e;
     const checkMark = radioButton.nextSibling;
     radioButton.classList.toggle("radio--showBackground");
     checkMark.classList.toggle("radio__checkMark--showCheckMark");
+
+    const listItem = checkMark.parentElement.nextSibling;
+    listItem.classList.toggle("item--complete");
   };
 
   render() {
@@ -36,7 +39,7 @@ class ToDo extends React.Component {
           <div className="listItemContainer">
             <div className="radio">
               <input
-                onClick={this.handleCompletedToggle}
+                onClick={this.handleCompleteItem}
                 className="radio__checkbox"
                 type="radio"
               />
@@ -49,7 +52,7 @@ class ToDo extends React.Component {
           <div className="listItemContainer">
             <div className="radio">
               <input
-                onClick={this.handleCompletedToggle}
+                onClick={this.handleCompleteItem}
                 className="radio__checkbox"
                 type="radio"
               />
@@ -62,7 +65,7 @@ class ToDo extends React.Component {
           <div className="listItemContainer">
             <div className="radio">
               <input
-                onClick={this.handleCompletedToggle}
+                onClick={this.handleCompleteItem}
                 className="radio__checkbox"
                 type="radio"
               />
@@ -75,7 +78,7 @@ class ToDo extends React.Component {
           <div className="listItemContainer">
             <div className="radio">
               <input
-                onClick={this.handleCompletedToggle}
+                onClick={this.handleCompleteItem}
                 className="radio__checkbox"
                 type="radio"
               />
@@ -88,7 +91,7 @@ class ToDo extends React.Component {
           <div className="listItemContainer">
             <div className="radio">
               <input
-                onClick={this.handleCompletedToggle}
+                onClick={this.handleCompleteItem}
                 className="radio__checkbox"
                 type="radio"
               />
@@ -101,7 +104,7 @@ class ToDo extends React.Component {
           <div className="listItemContainer">
             <div className="radio">
               <input
-                onClick={this.handleCompletedToggle}
+                onClick={this.handleCompleteItem}
                 className="radio__checkbox"
                 type="radio"
               />

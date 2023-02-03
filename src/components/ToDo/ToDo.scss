@@ -34,6 +34,13 @@
       align-items: center;
       gap: 24px;
 
+      .item {
+        &--complete {
+          color: var(--clr-completed-item);
+          text-decoration: line-through;
+        }
+      }
+
       .radio {
         position: relative;
 

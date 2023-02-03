@@ -94,6 +94,10 @@ ol {
   align-items: center;
   gap: 24px;
 }
+.todo .todoList .listItemContainer .item--complete {
+  color: var(--clr-completed-item);
+  text-decoration: line-through;
+}
 .todo .todoList .listItemContainer .radio {
   position: relative;
 }
