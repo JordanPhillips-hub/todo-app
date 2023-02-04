@@ -11,7 +11,7 @@ class ToDo extends React.Component {
     };
   }
 
-  handleChange = ({ target: { value } }) =>
+  handleTodoInput = ({ target: { value } }) =>
     this.setState({
       text: value,
     });
@@ -31,7 +31,7 @@ class ToDo extends React.Component {
     return (
       <form className="todo">
         <input
-          onChange={this.handleChange}
+          onChange={this.handleTodoInput}
           className="todo__input"
           type="text"
           placeholder="Create a new todo..."
