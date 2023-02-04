@@ -1,5 +1,6 @@
 import React from "react";
 import checkMark from "../../assets/images/icon-check.svg";
+import cross from "../../assets/images/icon-cross.svg";
 import "../ToDo/ToDo.scss";
 
 class ToDo extends React.Component {
@@ -37,7 +38,7 @@ class ToDo extends React.Component {
         />
 
         <ul className="todoList">
-          <div className="listItemContainer">
+          <div className="listItem">
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
@@ -51,9 +52,11 @@ class ToDo extends React.Component {
             </div>
 
             <li className="item">Complete online JavaScript course</li>
+
+            <img src={cross} alt="Delete Item" />
           </div>
 
-          <div className="listItemContainer">
+          <div className="listItem">
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
@@ -69,7 +72,7 @@ class ToDo extends React.Component {
             <li className="item">Jog around the park 3x</li>
           </div>
 
-          <div className="listItemContainer">
+          <div className="listItem">
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
@@ -85,7 +88,7 @@ class ToDo extends React.Component {
             <li className="item">10 minutes meditation</li>
           </div>
 
-          <div className="listItemContainer">
+          <div className="listItem">
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
@@ -101,7 +104,7 @@ class ToDo extends React.Component {
             <li className="item">Read for 1 hour</li>
           </div>
 
-          <div className="listItemContainer">
+          <div className="listItem">
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
@@ -117,7 +120,7 @@ class ToDo extends React.Component {
             <li className="item">Pick up groceries</li>
           </div>
 
-          <div className="listItemContainer">
+          <div className="listItem">
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}

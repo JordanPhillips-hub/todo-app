@@ -3,7 +3,7 @@
 .todo {
   width: inherit;
 
-  & :is(.todo__input, .listItemContainer) {
+  & :is(.todo__input, .listItem) {
     color: var(--clr-text-primary);
     font-size: px-rem(18);
     padding: 1.11em 0 1.11em 1.33em;
@@ -28,7 +28,7 @@
     background-color: var(--clr-item-bg);
     border-radius: var(--br-sm);
 
-    .listItemContainer {
+    .listItem {
       display: flex;
       align-items: center;
       gap: 24px;
@@ -50,7 +50,6 @@
         & :hover,
         & :focus {
           outline: none;
-          border-radius: 50%;
           border: 1px solid transparent;
           background: linear-gradient(
               130deg,
@@ -63,7 +62,6 @@
           -webkit-mask-composite: xor;
           mask-composite: exclude;
         }
-
         &__btn {
           background-color: transparent;
           border-radius: 50%;

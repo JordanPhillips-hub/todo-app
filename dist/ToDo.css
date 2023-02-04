@@ -62,7 +62,7 @@ ol {
 .todo {
   width: inherit;
 }
-.todo :is(.todo__input, .listItemContainer) {
+.todo :is(.todo__input, .listItem) {
   color: var(--clr-text-primary);
   font-size: 1.125rem;
   padding: 1.11em 0 1.11em 1.33em;
@@ -84,58 +84,42 @@ ol {
   background-color: var(--clr-item-bg);
   border-radius: var(--br-sm);
 }
-.todo .todoList .listItemContainer {
-  border-bottom: 1px solid var(--clr-borders);
+.todo .todoList .listItem {
   display: flex;
   align-items: center;
   gap: 24px;
+  border-bottom: 1px solid var(--clr-borders);
 }
-.todo .todoList .listItemContainer:hover {
-  cursor: pointer;
-}
-.todo .todoList .listItemContainer .item--complete {
+.todo .todoList .listItem .item--complete {
   color: var(--clr-completed-item);
   text-decoration: line-through;
 }
-.todo .todoList .listItemContainer .radio {
+.todo .todoList .listItem .item:hover {
+  cursor: pointer;
+}
+.todo .todoList .listItem .completeItem {
   position: relative;
 }
-.todo .todoList .listItemContainer .radio:hover {
-  border-radius: 50px;
+.todo .todoList .listItem .completeItem :hover, .todo .todoList .listItem .completeItem :focus {
+  outline: none;
   border: 1px solid transparent;
   background: linear-gradient(130deg, var(--clr-check-background-blue), var(--clr-check-background-purple)) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
-.todo .todoList .listItemContainer .radio__checkbox {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  display: grid;
-  place-content: center;
-  background-color: var(--clr-item-bg);
+.todo .todoList .listItem .completeItem__btn {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--clr-borders);
   width: 1.86em;
   height: 1.86em;
-  border: 1px solid var(--clr-borders);
-  border-radius: 50%;
-  cursor: pointer;
 }
-.todo .todoList .listItemContainer .radio__checkbox::before {
-  content: "";
-  width: 0.857em;
-  height: 0.857em;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-}
-.todo .todoList .listItemContainer .radio__checkbox:checked::before {
-  transform: scale(2.1);
-}
-.todo .todoList .listItemContainer .radio--showBackground {
-  background: linear-gradient(to right, var(--clr-check-background-blue) 0%, var(--clr-check-background-purple) 100%);
+.todo .todoList .listItem .completeItem--showBackground {
+  background: linear-gradient(130deg, var(--clr-check-background-blue) 0%, var(--clr-check-background-purple) 100%);
   border: none;
 }
-.todo .todoList .listItemContainer .radio__checkMark {
+.todo .todoList .listItem .completeItem__checkMark {
   transform: scale(0);
   pointer-events: none;
   z-index: 1;
@@ -143,6 +127,6 @@ ol {
   bottom: 7px;
   right: 7px;
 }
-.todo .todoList .listItemContainer .radio__checkMark--showCheckMark {
+.todo .todoList .listItem .completeItem__checkMark--showCheckMark {
   transform: scale(1);
 }/*# sourceMappingURL=ToDo.css.map */
