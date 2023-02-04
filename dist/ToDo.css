@@ -65,7 +65,7 @@ ol {
 .todo :is(.todo__input, .listItem) {
   color: var(--clr-text-primary);
   font-size: 1.125rem;
-  padding: 1.11em 0 1.11em 1.33em;
+  padding: 1.11em 1.33em;
 }
 .todo__input {
   background-color: var(--clr-item-bg);
@@ -90,23 +90,12 @@ ol {
   gap: 24px;
   border-bottom: 1px solid var(--clr-borders);
 }
-.todo .todoList .listItem .item--complete {
-  color: var(--clr-completed-item);
-  text-decoration: line-through;
-}
-.todo .todoList .listItem .item:hover {
-  cursor: pointer;
-}
 .todo .todoList .listItem .completeItem {
   position: relative;
 }
 .todo .todoList .listItem .completeItem :hover, .todo .todoList .listItem .completeItem :focus {
   outline: none;
-  border: 1px solid transparent;
-  background: linear-gradient(130deg, var(--clr-check-background-blue), var(--clr-check-background-purple)) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  border: 1px solid var(--clr-check-background-purple);
 }
 .todo .todoList .listItem .completeItem__btn {
   background-color: transparent;
@@ -129,4 +118,15 @@ ol {
 }
 .todo .todoList .listItem .completeItem__checkMark--showCheckMark {
   transform: scale(1);
+}
+.todo .todoList .listItem__delete {
+  display: none;
+  justify-content: flex-end;
+}
+.todo .todoList .listItem__item--complete {
+  color: var(--clr-completed-item);
+  text-decoration: line-through;
+}
+.todo .todoList .listItem .listItem + .listItem__delete {
+  display: block;
 }/*# sourceMappingURL=ToDo.css.map */

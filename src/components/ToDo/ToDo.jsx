@@ -51,9 +51,11 @@ class ToDo extends React.Component {
               />
             </div>
 
-            <li className="item">Complete online JavaScript course</li>
+            <li className="listItem__item">
+              Complete online JavaScript course
+            </li>
 
-            <img src={cross} alt="Delete Item" />
+            <img className="listItem__delete" src={cross} alt="Delete Item" />
           </div>
 
           <div className="listItem">
@@ -69,7 +71,9 @@ class ToDo extends React.Component {
               />
             </div>
 
-            <li className="item">Jog around the park 3x</li>
+            <li className="listItem__item">Jog around the park 3x</li>
+
+            <img className="listItem__delete" src={cross} alt="Delete Item" />
           </div>
 
           <div className="listItem">
@@ -85,7 +89,9 @@ class ToDo extends React.Component {
               />
             </div>
 
-            <li className="item">10 minutes meditation</li>
+            <li className="listItem__item">10 minutes meditation</li>
+
+            <img className="listItem__delete" src={cross} alt="Delete Item" />
           </div>
 
           <div className="listItem">
@@ -101,7 +107,9 @@ class ToDo extends React.Component {
               />
             </div>
 
-            <li className="item">Read for 1 hour</li>
+            <li className="listItem__item">Read for 1 hour</li>
+
+            <img className="listItem__delete" src={cross} alt="Delete Item" />
           </div>
 
           <div className="listItem">
@@ -117,7 +125,9 @@ class ToDo extends React.Component {
               />
             </div>
 
-            <li className="item">Pick up groceries</li>
+            <li className="listItem__item">Pick up groceries</li>
+
+            <img className="listItem__delete" src={cross} alt="Delete Item" />
           </div>
 
           <div className="listItem">
@@ -133,7 +143,11 @@ class ToDo extends React.Component {
               />
             </div>
 
-            <li className="item">Complete Todo App on Frontend Mentor</li>
+            <li className="listItem__item">
+              Complete Todo App on Frontend Mentor
+            </li>
+
+            <img className="listItem__delete" src={cross} alt="Delete Item" />
           </div>
         </ul>
       </form>
