@@ -29,27 +29,28 @@
     border-radius: var(--br-sm);
 
     .listItemContainer {
-      border-bottom: 1px solid var(--clr-borders);
       display: flex;
       align-items: center;
       gap: 24px;
-
-      &:hover {
-        cursor: pointer;
-      }
+      border-bottom: 1px solid var(--clr-borders);
 
       .item {
         &--complete {
           color: var(--clr-completed-item);
           text-decoration: line-through;
         }
-      }
-
-      .radio {
-        position: relative;
 
         &:hover {
-          border-radius: 50px;
+          cursor: pointer;
+        }
+      }
+
+      .completeItem {
+        position: relative;
+        & :hover,
+        & :focus {
+          outline: none;
+          border-radius: 50%;
           border: 1px solid transparent;
           background: linear-gradient(
               130deg,
@@ -63,34 +64,17 @@
           mask-composite: exclude;
         }
 
-        &__checkbox {
-          -webkit-appearance: none;
-          appearance: none;
-          display: grid;
-          place-content: center;
-          background-color: var(--clr-item-bg);
+        &__btn {
+          background-color: transparent;
+          border-radius: 50%;
+          border: 1px solid var(--clr-borders);
           width: 1.86em;
           height: 1.86em;
-          border: 1px solid var(--clr-borders);
-          border-radius: 50%;
-          cursor: pointer;
-        }
-
-        &__checkbox::before {
-          content: "";
-          width: 0.857em;
-          height: 0.857em;
-          transform: scale(0);
-          transition: 120ms transform ease-in-out;
-        }
-
-        &__checkbox:checked::before {
-          transform: scale(2.1);
         }
 
         &--showBackground {
           background: linear-gradient(
-            to right,
+            130deg,
             var(--clr-check-background-blue) 0%,
             var(--clr-check-background-purple) 100%
           );

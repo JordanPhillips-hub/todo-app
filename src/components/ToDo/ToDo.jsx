@@ -17,9 +17,10 @@ class ToDo extends React.Component {
 
   handleCompleteItem = (e) => {
     const { target: radioButton } = e;
+    e.preventDefault();
     const checkMark = radioButton.nextSibling;
-    radioButton.classList.toggle("radio--showBackground");
-    checkMark.classList.toggle("radio__checkMark--showCheckMark");
+    radioButton.classList.toggle("completeItem--showBackground");
+    checkMark.classList.toggle("completeItem__checkMark--showCheckMark");
 
     const listItem = checkMark.parentElement.nextSibling;
     listItem.classList.toggle("item--complete");
@@ -37,78 +38,96 @@ class ToDo extends React.Component {
 
         <ul className="todoList">
           <div className="listItemContainer">
-            <div className="radio">
-              <input
+            <div className="completeItem">
+              <button
                 onClick={this.handleCompleteItem}
-                className="radio__checkbox"
-                type="radio"
+                className="completeItem__btn"
               />
-              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <img
+                className="completeItem__checkMark"
+                src={checkMark}
+                alt="checked"
+              />
             </div>
 
             <li className="item">Complete online JavaScript course</li>
           </div>
 
           <div className="listItemContainer">
-            <div className="radio">
-              <input
+            <div className="completeItem">
+              <button
                 onClick={this.handleCompleteItem}
-                className="radio__checkbox"
-                type="radio"
+                className="completeItem__btn"
               />
-              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <img
+                className="completeItem__checkMark"
+                src={checkMark}
+                alt="checked"
+              />
             </div>
 
             <li className="item">Jog around the park 3x</li>
           </div>
 
           <div className="listItemContainer">
-            <div className="radio">
-              <input
+            <div className="completeItem">
+              <button
                 onClick={this.handleCompleteItem}
-                className="radio__checkbox"
-                type="radio"
+                className="completeItem__btn"
               />
-              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <img
+                className="completeItem__checkMark"
+                src={checkMark}
+                alt="checked"
+              />
             </div>
 
             <li className="item">10 minutes meditation</li>
           </div>
 
           <div className="listItemContainer">
-            <div className="radio">
-              <input
+            <div className="completeItem">
+              <button
                 onClick={this.handleCompleteItem}
-                className="radio__checkbox"
-                type="radio"
+                className="completeItem__btn"
               />
-              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <img
+                className="completeItem__checkMark"
+                src={checkMark}
+                alt="checked"
+              />
             </div>
 
             <li className="item">Read for 1 hour</li>
           </div>
 
           <div className="listItemContainer">
-            <div className="radio">
-              <input
+            <div className="completeItem">
+              <button
                 onClick={this.handleCompleteItem}
-                className="radio__checkbox"
-                type="radio"
+                className="completeItem__btn"
               />
-              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <img
+                className="completeItem__checkMark"
+                src={checkMark}
+                alt="checked"
+              />
             </div>
 
             <li className="item">Pick up groceries</li>
           </div>
 
           <div className="listItemContainer">
-            <div className="radio">
-              <input
+            <div className="completeItem">
+              <button
                 onClick={this.handleCompleteItem}
-                className="radio__checkbox"
-                type="radio"
+                className="completeItem__btn"
               />
-              <img className="radio__checkMark" src={checkMark} alt="checked" />
+              <img
+                className="completeItem__checkMark"
+                src={checkMark}
+                alt="checked"
+              />
             </div>
 
             <li className="item">Complete Todo App on Frontend Mentor</li>
