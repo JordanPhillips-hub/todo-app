@@ -29,14 +29,14 @@
     border-radius: var(--br-sm);
 
     .listItem {
-      // & :is(.listItem__item, .listItem__delete):hover {
-      //   cursor: pointer;
-      // }
-
       display: flex;
       align-items: center;
       gap: 24px;
       border-bottom: 1px solid var(--clr-borders);
+
+      &:hover :last-child.listItem__delete {
+        display: block;
+      }
 
       .completeItem {
         position: relative;
@@ -55,12 +55,12 @@
         }
 
         &--showBackground {
+          border: none;
           background: linear-gradient(
             130deg,
             var(--clr-check-background-blue) 0%,
             var(--clr-check-background-purple) 100%
           );
-          border: none;
         }
 
         &__checkMark {
@@ -83,20 +83,10 @@
       }
 
       &__item {
-        // width: 100%;
-
         &--complete {
           color: var(--clr-completed-item);
           text-decoration: line-through;
         }
-
-        // &:hover {
-        //   flex: 1;
-        // }
-      }
-
-      .listItem + .listItem__delete {
-        display: block;
       }
     }
   }
