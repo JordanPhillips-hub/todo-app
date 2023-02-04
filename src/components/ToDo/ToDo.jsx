@@ -42,7 +42,7 @@ class ToDo extends React.Component {
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
-                className="completeItem__btn"
+                className="btn completeItem--btn"
               />
               <img
                 className="completeItem__checkMark"
@@ -62,7 +62,7 @@ class ToDo extends React.Component {
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
-                className="completeItem__btn"
+                className="btn completeItem--btn"
               />
               <img
                 className="completeItem__checkMark"
@@ -80,7 +80,7 @@ class ToDo extends React.Component {
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
-                className="completeItem__btn"
+                className="btn completeItem--btn"
               />
               <img
                 className="completeItem__checkMark"
@@ -98,7 +98,7 @@ class ToDo extends React.Component {
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
-                className="completeItem__btn"
+                className="btn completeItem--btn"
               />
               <img
                 className="completeItem__checkMark"
@@ -116,7 +116,7 @@ class ToDo extends React.Component {
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
-                className="completeItem__btn"
+                className="btn completeItem--btn"
               />
               <img
                 className="completeItem__checkMark"
@@ -134,7 +134,7 @@ class ToDo extends React.Component {
             <div className="completeItem">
               <button
                 onClick={this.handleCompleteItem}
-                className="completeItem__btn"
+                className="btn completeItem--btn"
               />
               <img
                 className="completeItem__checkMark"
