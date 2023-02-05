@@ -9,3 +9,12 @@
   width: 1.86em;
   height: 1.86em;
 }
+
+.showCompletedBackground {
+  border: none;
+  background: linear-gradient(
+    130deg,
+    var(--clr-check-background-blue) 0%,
+    var(--clr-check-background-purple) 100%
+  );
+}

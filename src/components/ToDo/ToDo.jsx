@@ -48,7 +48,7 @@ class ToDo extends React.Component {
     const checkMark = btn.nextSibling;
     // Get reference to list item element
     const listItem = checkMark.parentElement.nextSibling;
-    btn.classList.toggle("showBackground");
+    btn.classList.toggle("showCompletedBackground");
     checkMark.classList.toggle("showCheckMark");
     listItem.classList.toggle("complete");
   };
