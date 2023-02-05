@@ -53,12 +53,17 @@ class ToDo extends React.Component {
     listItem.classList.toggle("complete");
   };
 
-  handleDeleteItem = (e) => {
-    e.target.parentElement.remove();
+  // Handles deletion of an item from the items array
+  // index - Index of item to be deleted
+  handleDeleteItem = (index) => {
+    this.setState((prev) => ({
+      items: prev.items.filter((item, i) => i !== index),
+    }));
   };
 
   render() {
     const { items } = this.state;
+    const itemsLength = items.length;
 
     return (
       <form onSubmit={this.handleSubmit} className="todo">
@@ -94,7 +99,7 @@ class ToDo extends React.Component {
                 <li className="listItem__item">{item.text}</li>
 
                 <img
-                  onClick={this.handleDeleteItem}
+                  onClick={() => this.handleDeleteItem(index)}
                   className="listItem__delete"
                   src={cross}
                   alt="Delete Item"
@@ -103,6 +108,19 @@ class ToDo extends React.Component {
             );
           })}
         </ul>
+
+        <div>
+          <Button
+            className="btn btn--transparent"
+            text={`${itemsLength} items left`}
+          />
+          <div>
+            <Button className="btn btn--transparent" text="All" />
+            <Button className="btn btn--transparent" text="Active" />
+            <Button className="btn btn--transparent" text="Completed" />
+          </div>
+          <Button className="btn btn--transparent" text="Clear Completed" />
+        </div>
       </form>
     );
   }
