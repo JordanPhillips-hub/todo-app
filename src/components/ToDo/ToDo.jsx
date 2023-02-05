@@ -65,7 +65,7 @@ class ToDo extends React.Component {
           {/* Map over items in state and render each task item */}
           {items.map((item, index) => {
             return (
-              <div className="listItem">
+              <div key={index} className="listItem">
                 <div className="completeItem">
                   <button
                     onClick={this.handleCompleteItem}
@@ -80,9 +80,7 @@ class ToDo extends React.Component {
                   />
                 </div>
 
-                <li key={index} className="listItem__item">
-                  {item.text}
-                </li>
+                <li className="listItem__item">{item.text}</li>
 
                 <img
                   className="listItem__delete"
