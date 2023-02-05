@@ -60,6 +60,7 @@ class ToDo extends React.Component {
                   <button
                     onClick={this.handleCompleteItem}
                     className="btn completeItem--btn"
+                    type="button"
                   />
                   <img
                     className="completeItem__checkMark"
