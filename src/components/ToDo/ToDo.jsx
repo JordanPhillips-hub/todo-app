@@ -20,7 +20,7 @@ class ToDo extends React.Component {
 
   // Method for handling form submission
   handleSubmit = (e) => {
-    e.preventDefault();
+    const createTodo = document.getElementById("todoInput");
     const { text } = this.state;
     const newItem = {
       text: text,
@@ -31,6 +31,11 @@ class ToDo extends React.Component {
       items: [...prev.items, newItem],
       text: "",
     }));
+
+    // Reset text input to be empty
+    createTodo.value = "";
+
+    e.preventDefault();
   };
 
   // Method for handling completion of ToDo task
@@ -58,6 +63,7 @@ class ToDo extends React.Component {
         {/* Input element for creating new ToDo tasks */}
         <input
           onChange={this.handleTodoInput}
+          id="todoInput"
           className="todo__input"
           type="text"
           placeholder="Create a new todo..."
