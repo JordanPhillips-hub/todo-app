@@ -12,20 +12,26 @@ class ToDo extends React.Component {
     };
   }
 
+  // Method for handling input change
   handleTodoInput = ({ target: { value } }) =>
     this.setState({
       text: value,
     });
 
+  // Method for handling completion of ToDo task
   handleCompleteItem = (e) => {
     const { target: btn } = e;
+
+    // Get reference to checkMark element
     const checkMark = btn.nextSibling;
+    // Get reference to list item element
     const listItem = checkMark.parentElement.nextSibling;
     btn.classList.toggle("showBackground");
     checkMark.classList.toggle("showCheckMark");
     listItem.classList.toggle("complete");
   };
 
+  // Method for handling form submission
   handleSubmit = (e) => {
     e.preventDefault();
     const { text } = this.state;
@@ -33,6 +39,7 @@ class ToDo extends React.Component {
       text: text,
     };
 
+    // Update state to add new item and clear input text
     this.setState((prev) => ({
       items: [...prev.items, newItem],
       text: "",
@@ -44,6 +51,7 @@ class ToDo extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit} className="todo">
+        {/* Input element for creating new ToDo tasks */}
         <input
           onChange={this.handleTodoInput}
           className="todo__input"
@@ -52,7 +60,9 @@ class ToDo extends React.Component {
           autoComplete="off"
         />
 
+        {/* Unordered list to display ToDo tasks */}
         <ul className="todoList">
+          {/* Map over items in state and render each task item */}
           {items.map((item, index) => {
             return (
               <div className="listItem">
@@ -62,6 +72,7 @@ class ToDo extends React.Component {
                     className="btn completeItem--btn"
                     type="button"
                   />
+
                   <img
                     className="completeItem__checkMark"
                     src={checkMark}
