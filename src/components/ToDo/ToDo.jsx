@@ -17,14 +17,15 @@ class ToDo extends React.Component {
     });
 
   handleCompleteItem = (e) => {
-    const { target: radioButton } = e;
-    e.preventDefault();
-    const checkMark = radioButton.nextSibling;
-    radioButton.classList.toggle("completeItem--showBackground");
-    checkMark.classList.toggle("completeItem__checkMark--showCheckMark");
+    const { target: btn } = e;
+
+    const checkMark = btn.nextSibling;
+    btn.classList.toggle("showBackground");
+    checkMark.classList.toggle("showCheckMark");
 
     const listItem = checkMark.parentElement.nextSibling;
-    listItem.classList.toggle("item--complete");
+    listItem.classList.toggle("complete");
+    e.preventDefault();
   };
 
   render() {
