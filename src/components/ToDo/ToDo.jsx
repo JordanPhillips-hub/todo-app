@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Buttons/Button";
 import checkMark from "../../assets/images/icon-check.svg";
 import cross from "../../assets/images/icon-cross.svg";
 import "../ToDo/ToDo.scss";
@@ -35,6 +36,7 @@ class ToDo extends React.Component {
     // Reset text input to be empty
     createTodo.value = "";
 
+    // Prevint default form submission
     e.preventDefault();
   };
 
@@ -77,10 +79,9 @@ class ToDo extends React.Component {
             return (
               <div key={index} className="listItem">
                 <div className="completeItem">
-                  <button
+                  <Button
                     onClick={this.handleCompleteItem}
-                    className="btn completeItem--btn"
-                    type="button"
+                    className="btn btn--completeItem"
                   />
 
                   <img
