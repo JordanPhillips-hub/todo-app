@@ -18,19 +18,6 @@ class ToDo extends React.Component {
       text: value,
     });
 
-  // Method for handling completion of ToDo task
-  handleCompleteItem = (e) => {
-    const { target: btn } = e;
-
-    // Get reference to checkMark element
-    const checkMark = btn.nextSibling;
-    // Get reference to list item element
-    const listItem = checkMark.parentElement.nextSibling;
-    btn.classList.toggle("showBackground");
-    checkMark.classList.toggle("showCheckMark");
-    listItem.classList.toggle("complete");
-  };
-
   // Method for handling form submission
   handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +31,23 @@ class ToDo extends React.Component {
       items: [...prev.items, newItem],
       text: "",
     }));
+  };
+
+  // Method for handling completion of ToDo task
+  handleCompleteItem = (e) => {
+    const { target: btn } = e;
+
+    // Get reference to checkMark element
+    const checkMark = btn.nextSibling;
+    // Get reference to list item element
+    const listItem = checkMark.parentElement.nextSibling;
+    btn.classList.toggle("showBackground");
+    checkMark.classList.toggle("showCheckMark");
+    listItem.classList.toggle("complete");
+  };
+
+  handleDeleteItem = (e) => {
+    e.target.parentElement.remove();
   };
 
   render() {
@@ -83,6 +87,7 @@ class ToDo extends React.Component {
                 <li className="listItem__item">{item.text}</li>
 
                 <img
+                  onClick={this.handleDeleteItem}
                   className="listItem__delete"
                   src={cross}
                   alt="Delete Item"
