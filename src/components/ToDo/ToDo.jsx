@@ -47,7 +47,7 @@ class ToDo extends React.Component {
     this.setState((prev) => {
       const updatedItems = prev.items.map((item) => {
         if (item.id === id) {
-          return { ...item, completed: true };
+          return { ...item, completed: !item.completed };
         }
         return item;
       });
@@ -98,7 +98,7 @@ class ToDo extends React.Component {
           {/* Map over items in state and render each task item */}
           {items.map((item, index) => {
             return (
-              <div key={index} className="listItem">
+              <div key={item.id} className="listItem">
                 <div className="completeItem">
                   <Button
                     onClick={() => this.handleCompleteItem(item.id)}
