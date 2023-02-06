@@ -25,6 +25,8 @@ class ToDo extends React.Component {
     const { text } = this.state;
     const newItem = {
       text: text,
+      completed: false,
+      id: Date.now(),
     };
 
     // Update state to add new item and clear input text
@@ -41,20 +43,34 @@ class ToDo extends React.Component {
   };
 
   // Method for handling completion of ToDo task
-  handleCompleteItem = (e) => {
-    const { target: btn } = e;
+  handleCompleteItem = (id) => {
+    this.setState((prev) => {
+      const updatedItems = prev.items.map((item) => {
+        if (item.id === id) {
+          return { ...item, completed: true };
+        }
+        return item;
+      });
+      return { items: updatedItems };
+    });
+
+    // const { target: btn } = e;
 
     // Get reference to checkMark element
-    const checkMark = btn.nextSibling;
+    // const checkMark = btn.nextSibling;
     // Get reference to list item element
-    const listItem = checkMark.parentElement.nextSibling;
-    btn.classList.toggle("showCompletedBackground");
-    checkMark.classList.toggle("showCheckMark");
-    listItem.classList.toggle("complete");
+    // const listItem = checkMark.parentElement.nextSibling;
+    // btn.classList.toggle("showCompletedBackground");
+    // checkMark.classList.toggle("showCheckMark");
+    // listItem.classList.toggle("complete");
   };
 
+  // handleCompleteItem = (e) => {
+  //   console.log(e.target);
+  //   e.target.classList.toggle("showCompletedBackground");
+  // };
+
   // Handles deletion of an item from the items array
-  // index - Index of item to be deleted
   handleDeleteItem = (index) => {
     this.setState((prev) => ({
       items: prev.items.filter((item, i) => i !== index),
@@ -85,7 +101,7 @@ class ToDo extends React.Component {
               <div key={index} className="listItem">
                 <div className="completeItem">
                   <Button
-                    onClick={this.handleCompleteItem}
+                    onClick={() => this.handleCompleteItem(item.id)}
                     className="btn btn--completeItem"
                   />
 
