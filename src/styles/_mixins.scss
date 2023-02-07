@@ -33,3 +33,24 @@
   gap: $gap;
   @content;
 }
+
+@mixin border($width, $style, $color, $radius) {
+  border: $width $style $color;
+  border-radius: $radius;
+  @content;
+}
+
+@mixin custom-border-top($radius, $top-l, $top-r) {
+  border-radius: $radius;
+  border-top-left-radius: $top-l;
+  border-top-right-radius: $top-r;
+  @content;
+}
+
+@mixin custom-border-bottom($bottom-l, $bottom-r) {
+  border-top: 0;
+  border-bottom: 1px solid var(--clr-borders);
+  border-bottom-left-radius: $bottom-l;
+  border-bottom-right-radius: $bottom-r;
+  @content;
+}
