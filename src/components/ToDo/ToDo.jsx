@@ -86,11 +86,19 @@ class ToDo extends React.Component {
                 <div className="completeItem">
                   <Button
                     onClick={() => this.handleToggleCompleted(item.id)}
-                    className="btn btn--completeItem"
+                    className={
+                      item.completed
+                        ? "btn btn--completeItem showCompletedBackground"
+                        : "btn btn--completeItem"
+                    }
                   />
 
                   <img
-                    className="completeItem__checkMark"
+                    className={
+                      item.completed
+                        ? "completeItem__checkMark showCheckMark"
+                        : "completeItem__checkMark"
+                    }
                     src={checkMark}
                     alt="checked"
                   />
