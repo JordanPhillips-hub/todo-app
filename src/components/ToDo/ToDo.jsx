@@ -43,7 +43,7 @@ class ToDo extends React.Component {
   };
 
   // Method for handling completion of ToDo task
-  handleCompleteItem = (id) => {
+  handleToggleCompleted = (id) => {
     this.setState((prev) => {
       const updatedItems = prev.items.map((item) => {
         if (item.id === id) {
@@ -85,7 +85,7 @@ class ToDo extends React.Component {
               <div key={item.id} className="listItem" data-key={item.id}>
                 <div className="completeItem">
                   <Button
-                    onClick={() => this.handleCompleteItem(item.id)}
+                    onClick={() => this.handleToggleCompleted(item.id)}
                     className="btn btn--completeItem"
                   />
 
