@@ -1,11 +1,6 @@
 .todo {
   width: inherit;
 }
-.todo:focus {
-  outline: none;
-  box-shadow: 0 0 10px var(--clr-text-primary);
-  transform: scale(1.02);
-}
 .todo :is(.todo__input, .listItem, .listOptions) {
   background-color: var(--clr-item-bg);
   color: var(--clr-text-primary);
@@ -22,11 +17,15 @@
   border: 1px solid var(--clr-borders);
   margin-bottom: 24px;
 }
-
-.todoList {
+.todo__input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--clr-text-primary);
+  transform: scale(1.02);
+}
+.todo .todoList {
   box-shadow: 0px 35px 50px var(--clr-list-shadow);
 }
-.todoList .listItem {
+.todo .todoList .listItem {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -34,28 +33,31 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.todoList .listItem:hover :last-child.listItem__delete {
+.todo .todoList .listItem:hover :last-child.listItem__delete {
   display: block;
 }
-.todoList .listItem :is(.todoList .listItem__item, .todoList .listItem__delete):hover {
+.todo .todoList .listItem :is(.todo .todoList .listItem__item, .todo .todoList .listItem__delete):hover {
   cursor: pointer;
 }
-.todoList .listItem__delete {
+.todo .todoList .listItem__delete {
   display: none;
   justify-content: flex-end;
 }
-.todoList .listItem__item {
+.todo .todoList .listItem__item {
   flex: 1;
 }
-
-.completeItem {
+.todo .todoList .listItem .complete {
+  color: var(--clr-completed-item);
+  text-decoration: line-through;
+}
+.todo .completeItem {
   position: relative;
 }
-.completeItem :hover, .completeItem :focus {
+.todo .completeItem :hover, .todo .completeItem :focus {
   outline: none;
   border: 1px solid var(--clr-check-background-purple);
 }
-.completeItem__checkMark {
+.todo .completeItem__checkMark {
   transform: scale(0);
   pointer-events: none;
   z-index: 1;
@@ -63,8 +65,10 @@
   bottom: 7px;
   right: 7px;
 }
-
-.listOptions {
+.todo .completeItem .showCheckMark {
+  transform: scale(1);
+}
+.todo .listOptions {
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 35px 50px var(--clr-list-shadow);
@@ -72,16 +76,7 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.listOptions .activeOptions {
+.todo .listOptions .activeOptions {
   display: flex;
   gap: 18px;
-}
-
-.complete {
-  color: var(--clr-completed-item);
-  text-decoration: line-through;
-}
-
-.showCheckMark {
-  transform: scale(1);
 }/*# sourceMappingURL=ToDo.css.map */

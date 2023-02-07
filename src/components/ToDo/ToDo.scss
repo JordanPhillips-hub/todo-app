@@ -3,12 +3,6 @@
 .todo {
   width: inherit;
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 10px var(--clr-text-primary);
-    transform: scale(1.02);
-  }
-
   & :is(.todo__input, .listItem, .listOptions) {
     background-color: var(--clr-item-bg);
     color: var(--clr-text-primary);
@@ -26,76 +20,82 @@
     width: inherit;
     border: 1px solid var(--clr-borders);
     margin-bottom: 24px;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px var(--clr-text-primary);
+      transform: scale(1.02);
+    }
   }
-}
 
-.todoList {
-  box-shadow: 0px 35px 50px var(--clr-list-shadow);
+  .todoList {
+    box-shadow: 0px 35px 50px var(--clr-list-shadow);
 
-  .listItem {
+    .listItem {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 1px solid var(--clr-borders);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &:hover :last-child.listItem__delete {
+        display: block;
+      }
+
+      & :is(&__item, &__delete):hover {
+        cursor: pointer;
+      }
+
+      &__delete {
+        display: none;
+        justify-content: flex-end;
+      }
+
+      &__item {
+        flex: 1;
+      }
+
+      .complete {
+        color: var(--clr-completed-item);
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .completeItem {
+    position: relative;
+    & :hover,
+    & :focus {
+      outline: none;
+      border: 1px solid var(--clr-check-background-purple);
+    }
+
+    &__checkMark {
+      transform: scale(0);
+      pointer-events: none;
+      z-index: 1;
+      position: absolute;
+      bottom: 7px;
+      right: 7px;
+    }
+
+    .showCheckMark {
+      transform: scale(1);
+    }
+  }
+
+  .listOptions {
     display: flex;
-    align-items: center;
-    gap: 24px;
-    border-bottom: 1px solid var(--clr-borders);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    justify-content: space-between;
+    box-shadow: 0px 35px 50px var(--clr-list-shadow);
+    border-radius: var(--br-sm);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
-    &:hover :last-child.listItem__delete {
-      display: block;
-    }
-
-    & :is(&__item, &__delete):hover {
-      cursor: pointer;
-    }
-
-    &__delete {
-      display: none;
-      justify-content: flex-end;
-    }
-
-    &__item {
-      flex: 1;
+    .activeOptions {
+      display: flex;
+      gap: 18px;
     }
   }
-}
-
-.completeItem {
-  position: relative;
-  & :hover,
-  & :focus {
-    outline: none;
-    border: 1px solid var(--clr-check-background-purple);
-  }
-
-  &__checkMark {
-    transform: scale(0);
-    pointer-events: none;
-    z-index: 1;
-    position: absolute;
-    bottom: 7px;
-    right: 7px;
-  }
-}
-
-.listOptions {
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0px 35px 50px var(--clr-list-shadow);
-  border-radius: var(--br-sm);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-
-  .activeOptions {
-    display: flex;
-    gap: 18px;
-  }
-}
-
-.complete {
-  color: var(--clr-completed-item);
-  text-decoration: line-through;
-}
-
-.showCheckMark {
-  transform: scale(1);
 }
