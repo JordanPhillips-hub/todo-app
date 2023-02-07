@@ -2,9 +2,9 @@
 @use "../../styles/styles.scss" as *;
 
 .appBg {
+  // Test Height
   background-image: url("../../assets/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
-  // Test Height
   background-size: 100% 300px;
   background-color: var(--clr-body-bg);
   min-height: 100vh;
