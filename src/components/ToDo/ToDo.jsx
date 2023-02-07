@@ -53,24 +53,8 @@ class ToDo extends React.Component {
       });
       return { items: updatedItems };
     });
-
-    // const { target: btn } = e;
-
-    // Get reference to checkMark element
-    // const checkMark = btn.nextSibling;
-    // Get reference to list item element
-    // const listItem = checkMark.parentElement.nextSibling;
-    // btn.classList.toggle("showCompletedBackground");
-    // checkMark.classList.toggle("showCheckMark");
-    // listItem.classList.toggle("complete");
   };
 
-  // handleCompleteItem = (e) => {
-  //   console.log(e.target);
-  //   e.target.classList.toggle("showCompletedBackground");
-  // };
-
-  // Handles deletion of an item from the items array
   handleDeleteItem = (index) => {
     this.setState((prev) => ({
       items: prev.items.filter((item, i) => i !== index),
@@ -98,7 +82,7 @@ class ToDo extends React.Component {
           {/* Map over items in state and render each task item */}
           {items.map((item, index) => {
             return (
-              <div key={item.id} className="listItem">
+              <div key={item.id} className="listItem" data-key={item.id}>
                 <div className="completeItem">
                   <Button
                     onClick={() => this.handleCompleteItem(item.id)}
@@ -112,7 +96,9 @@ class ToDo extends React.Component {
                   />
                 </div>
 
-                <li className="listItem__item">{item.text}</li>
+                <li className={item.completed ? " complete" : "listItem__item"}>
+                  {item.text}
+                </li>
 
                 <img
                   onClick={() => this.handleDeleteItem(index)}
