@@ -18,6 +18,14 @@
   }
 }
 
+@mixin grid-item($place, $gap-r, $gap-c) {
+  display: grid;
+  place-items: $place;
+  grid-row-gap: $gap-r;
+  grid-column-gap: $gap-c;
+  @content;
+}
+
 @mixin flex-item($gap, $justify) {
   display: flex;
   align-items: center;

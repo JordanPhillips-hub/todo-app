@@ -11,13 +11,11 @@
 
   .app {
     background-color: transparent;
-    display: grid;
-    place-items: center;
+    @include grid-item($place: center, $gap-r: 40px, $gap-c: 0);
     max-width: 564px;
     padding-top: 70px;
-    margin-inline: auto;
     padding-inline: 24px;
-    grid-row-gap: 40px;
+    margin-inline: auto;
 
     & :is(header, main) {
       width: 100%;

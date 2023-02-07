@@ -71,11 +71,12 @@ ol {
   background-color: transparent;
   display: grid;
   place-items: center;
+  grid-row-gap: 40px;
+  grid-column-gap: 0;
   max-width: 564px;
   padding-top: 70px;
-  margin-inline: auto;
   padding-inline: 24px;
-  grid-row-gap: 40px;
+  margin-inline: auto;
 }
 .appBg .app :is(header, main) {
   width: 100%;
