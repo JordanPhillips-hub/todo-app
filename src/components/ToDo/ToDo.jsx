@@ -96,7 +96,13 @@ class ToDo extends React.Component {
                   />
                 </div>
 
-                <li className={item.completed ? " complete" : "listItem__item"}>
+                <li
+                  className={
+                    item.completed
+                      ? "listItem__item complete"
+                      : "listItem__item"
+                  }
+                >
                   {item.text}
                 </li>
 
