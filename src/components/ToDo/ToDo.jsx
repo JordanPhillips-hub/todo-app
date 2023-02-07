@@ -82,7 +82,7 @@ class ToDo extends React.Component {
           {/* Map over items in state and render each task item */}
           {items.map((item, index) => {
             return (
-              <div key={item.id} className="listItem" data-key={item.id}>
+              <div key={item.id} className="listItem">
                 <div className="completeItem">
                   <Button
                     onClick={() => this.handleToggleCompleted(item.id)}
