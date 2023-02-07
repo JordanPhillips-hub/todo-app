@@ -3,11 +3,20 @@
 .todo {
   width: inherit;
 
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--clr-text-primary);
+    transform: scale(1.02);
+  }
+
   & :is(.todo__input, .listItem, .listOptions) {
     background-color: var(--clr-item-bg);
     color: var(--clr-text-primary);
     font-size: px-rem(18);
     padding: 1.11em 1.33em;
+  }
+
+  & :is(.todo__input, .listItem) {
     border-radius: var(--br-sm);
   }
 
@@ -16,20 +25,13 @@
     letter-spacing: -0.25px;
     width: inherit;
     border: 1px solid var(--clr-borders);
-    border-radius: var(--br-sm);
     margin-bottom: 24px;
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 10px var(--clr-text-primary);
-      transform: scale(1.02);
-    }
   }
 }
 
 .todoList {
-  background-color: var(--clr-item-bg);
-  border-radius: var(--br-sm);
+  // background-color: var(--clr-item-bg);
+
   box-shadow: 0px 35px 50px var(--clr-list-shadow);
 
   .listItem {
@@ -37,13 +39,15 @@
     align-items: center;
     gap: 24px;
     border-bottom: 1px solid var(--clr-borders);
-
-    & :is(&__item, &__delete):hover {
-      cursor: pointer;
-    }
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     &:hover :last-child.listItem__delete {
       display: block;
+    }
+
+    & :is(&__item, &__delete):hover {
+      cursor: pointer;
     }
 
     &__delete {
@@ -79,8 +83,9 @@
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 35px 50px var(--clr-list-shadow);
+  border-radius: var(--br-sm);
+  border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
 
   .activeOptions {
     display: flex;

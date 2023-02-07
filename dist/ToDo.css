@@ -1,101 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
-:root {
-  --clr-bright-blue: hsl(220, 98%, 61%);
-  --clr-check-background-blue: hsl(192, 100%, 67%);
-  --clr-check-background-purple: hsl(280, 87%, 65%);
-  --clr-white: hsl(0, 0%, 100%);
-  --clr-text-secondary: hsl(235, 9%, 61%);
-  --clr-text-primary: hsl(235, 19%, 35%);
-  --clr-item-bg: hsl(0, 0%, 100%);
-  --clr-borders: hsl(236, 32%, 92%);
-  --clr-body-bg: hsl(0, 0%, 98%);
-  --clr-completed-item: hsl(233, 11%, 84%);
-  --br-sm: 5px;
-}
-
-[data-theme=dark] {
-  --clr-text-secondary: hsl(234, 11%, 52%);
-  --clr-text-primary: hsl(235, 39%, 85%);
-  --clr-item-bg: hsl(235, 24%, 19%);
-  --clr-borders: hsl(235, 14%, 26%);
-  --clr-body-bg: hsl(235, 21%, 11%);
-  --clr-completed-item: hsl(233, 14%, 35%);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 100%;
-}
-
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 400;
-  text-rendering: optimizeSpeed;
-  min-height: 100vh;
-}
-
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  height: auto;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
 .todo {
   width: inherit;
 }
-.todo :is(.todo__input, .listItem) {
+.todo:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--clr-text-primary);
+  transform: scale(1.02);
+}
+.todo :is(.todo__input, .listItem, .listOptions) {
+  background-color: var(--clr-item-bg);
   color: var(--clr-text-primary);
   font-size: 1.125rem;
   padding: 1.11em 1.33em;
+}
+.todo :is(.todo__input, .listItem) {
+  border-radius: var(--br-sm);
 }
 .todo__input {
   background-color: var(--clr-item-bg);
   letter-spacing: -0.25px;
   width: inherit;
   border: 1px solid var(--clr-borders);
-  border-radius: var(--br-sm);
   margin-bottom: 24px;
-}
-.todo__input:focus {
-  outline: none;
-  box-shadow: 0 0 10px var(--clr-text-primary);
-  transform: scale(1.02);
 }
 
 .todoList {
-  background-color: var(--clr-item-bg);
-  border-radius: var(--br-sm);
+  box-shadow: 0px 35px 50px var(--clr-list-shadow);
 }
 .todoList .listItem {
   display: flex;
   align-items: center;
   gap: 24px;
   border-bottom: 1px solid var(--clr-borders);
-}
-.todoList .listItem :is(.todoList .listItem__item, .completeItem--btn, .todoList .listItem__delete):hover {
-  cursor: pointer;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .todoList .listItem:hover :last-child.listItem__delete {
   display: block;
+}
+.todoList .listItem :is(.todoList .listItem__item, .todoList .listItem__delete):hover {
+  cursor: pointer;
 }
 .todoList .listItem__delete {
   display: none;
@@ -112,13 +55,6 @@ ol {
   outline: none;
   border: 1px solid var(--clr-check-background-purple);
 }
-.completeItem--btn {
-  background-color: transparent;
-  border-radius: 50%;
-  border: 1px solid var(--clr-borders);
-  width: 1.86em;
-  height: 1.86em;
-}
 .completeItem__checkMark {
   transform: scale(0);
   pointer-events: none;
@@ -128,9 +64,17 @@ ol {
   right: 7px;
 }
 
-.showBackground {
-  border: none;
-  background: linear-gradient(130deg, var(--clr-check-background-blue) 0%, var(--clr-check-background-purple) 100%);
+.listOptions {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 35px 50px var(--clr-list-shadow);
+  border-radius: var(--br-sm);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.listOptions .activeOptions {
+  display: flex;
+  gap: 18px;
 }
 
 .complete {
