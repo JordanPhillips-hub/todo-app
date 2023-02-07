@@ -125,7 +125,7 @@ class ToDo extends React.Component {
           })}
         </ul>
 
-        <div>
+        <div className="listOptions">
           <Button
             className="btn btn--transparent"
             text={`${itemsLength} items left`}

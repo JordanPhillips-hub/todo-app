@@ -3,10 +3,12 @@
 .todo {
   width: inherit;
 
-  & :is(.todo__input, .listItem) {
+  & :is(.todo__input, .listItem, .listOptions) {
+    background-color: var(--clr-item-bg);
     color: var(--clr-text-primary);
     font-size: px-rem(18);
     padding: 1.11em 1.33em;
+    border-radius: var(--br-sm);
   }
 
   &__input {
@@ -70,6 +72,11 @@
     bottom: 7px;
     right: 7px;
   }
+}
+
+.listOptions {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .complete {
