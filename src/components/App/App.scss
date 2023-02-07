@@ -10,8 +10,8 @@
   min-height: 100vh;
 
   .app {
-    background-color: transparent;
     @include grid-item($place: center, $gap-r: 40px, $gap-c: 0);
+    background-color: transparent;
     max-width: 564px;
     padding-top: 70px;
     padding-inline: 24px;
