@@ -76,7 +76,12 @@
 
 .listOptions {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+
+  .activeOptions {
+    display: flex;
+    gap: 18px;
+  }
 }
 
 .complete {

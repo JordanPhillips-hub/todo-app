@@ -130,7 +130,7 @@ class ToDo extends React.Component {
             className="btn btn--transparent"
             text={`${itemsLength} items left`}
           />
-          <div>
+          <div className="activeOptions">
             <Button className="btn btn--transparent" text="All" />
             <Button className="btn btn--transparent" text="Active" />
             <Button className="btn btn--transparent" text="Completed" />
