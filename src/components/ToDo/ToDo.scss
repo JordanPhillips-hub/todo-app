@@ -30,6 +30,7 @@
 .todoList {
   background-color: var(--clr-item-bg);
   border-radius: var(--br-sm);
+  box-shadow: 0px 35px 50px rgba(194, 195, 214, 0.5);
 
   .listItem {
     display: flex;
@@ -77,6 +78,7 @@
 .listOptions {
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 35px 50px rgba(194, 195, 214, 0.5);
 
   .activeOptions {
     display: flex;
