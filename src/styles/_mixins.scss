@@ -1,0 +1,27 @@
+@mixin todo-item-styles() {
+  background-color: var(--clr-item-bg);
+  color: var(--clr-text-primary);
+  font-size: px-rem(18);
+  padding: 1.11em 1.33em;
+  border-radius: var(--br-sm);
+}
+
+@mixin todo-input-styles() {
+  width: inherit;
+  letter-spacing: -0.25px;
+  border: 1px solid var(--clr-borders);
+  margin-bottom: 24px;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--clr-text-primary);
+    transform: scale(1.02);
+  }
+}
+
+@mixin flex-item($gap, $justify) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  gap: $gap;
+  @content;
+}

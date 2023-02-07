@@ -24,10 +24,7 @@
     }
 
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
+      @include flex-item($gap: 0, $justify: space-between);
       h1 {
         color: var(--clr-white);
         font-size: px-rem(40);

@@ -15,25 +15,14 @@
   }
 
   &__input {
-    letter-spacing: -0.25px;
-    width: inherit;
-    border: 1px solid var(--clr-borders);
-    margin-bottom: 24px;
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 10px var(--clr-text-primary);
-      transform: scale(1.02);
-    }
+    @include todo-input-styles();
   }
 
   .todoList {
     box-shadow: 0px 35px 50px var(--clr-list-shadow);
 
     .listItem {
-      display: flex;
-      align-items: center;
-      gap: 24px;
+      @include flex-item($gap: 24px, $justify: initial);
       border-bottom: 1px solid var(--clr-borders);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
@@ -85,16 +74,14 @@
   }
 
   .listOptions {
-    display: flex;
-    justify-content: space-between;
+    @include flex-item($gap: 0, $justify: space-between);
     box-shadow: 0px 35px 50px var(--clr-list-shadow);
     border-radius: var(--br-sm);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
     .activeOptions {
-      display: flex;
-      gap: 18px;
+      @include flex-item($gap: 18px, $justify: initial);
     }
   }
 }

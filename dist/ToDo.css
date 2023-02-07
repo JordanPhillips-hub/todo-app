@@ -11,8 +11,8 @@
   border-radius: var(--br-sm);
 }
 .todo__input {
-  letter-spacing: -0.25px;
   width: inherit;
+  letter-spacing: -0.25px;
   border: 1px solid var(--clr-borders);
   margin-bottom: 24px;
 }
@@ -27,6 +27,7 @@
 .todo .todoList .listItem {
   display: flex;
   align-items: center;
+  justify-content: initial;
   gap: 24px;
   border-bottom: 1px solid var(--clr-borders);
   border-bottom-left-radius: 0;
@@ -69,7 +70,9 @@
 }
 .todo .listOptions {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 0;
   box-shadow: 0px 35px 50px var(--clr-list-shadow);
   border-radius: var(--br-sm);
   border-top-left-radius: 0;
@@ -77,5 +80,7 @@
 }
 .todo .listOptions .activeOptions {
   display: flex;
+  align-items: center;
+  justify-content: initial;
   gap: 18px;
 }/*# sourceMappingURL=ToDo.css.map */
