@@ -65,27 +65,11 @@
 .todo .todoListWrapper .completeItem__checkMark {
   transform: scale(0);
   position: absolute;
+  right: 7px;
+  bottom: 7px;
   z-index: 1;
   pointer-events: none;
-  bottom: 7px;
-  right: 7px;
 }
 .todo .todoListWrapper .completeItem .showCheckMark {
   transform: scale(1);
-}
-.todo .todoListWrapper .listOptions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0;
-  border-radius: var(--br-sm);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  font-size: 0.875rem;
-}
-.todo .todoListWrapper .listOptions .activeOptions {
-  display: flex;
-  align-items: center;
-  justify-content: initial;
-  gap: 18px;
 }/*# sourceMappingURL=ToDo.css.map */

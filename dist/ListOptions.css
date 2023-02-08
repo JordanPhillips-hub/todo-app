@@ -1,0 +1,21 @@
+.listOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  border-radius: var(--br-sm);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.listOptions .itemsLeft {
+  font-size: 0.875rem;
+}
+.listOptions .activeOptions {
+  display: flex;
+  align-items: center;
+  justify-content: initial;
+  gap: 18px;
+}
+.listOptions .activeOptions button {
+  font-weight: 700;
+}/*# sourceMappingURL=ListOptions.css.map */

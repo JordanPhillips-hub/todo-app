@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Buttons/Button";
+import ListOptions from "../ListOptions/ListOptions";
 import checkMark from "../../assets/images/icon-check.svg";
 import cross from "../../assets/images/icon-cross.svg";
 import "../ToDo/ToDo.scss";
@@ -125,17 +126,7 @@ class ToDo extends React.Component {
               );
             })}
           </ul>
-
-          <div className="listOptions">
-            <p className="itemsLeft">{`${itemsLength} items left`}</p>
-
-            <div className="activeOptions">
-              <Button className="btn btn--transparent" text="All" />
-              <Button className="btn btn--transparent" text="Active" />
-              <Button className="btn btn--transparent" text="Completed" />
-            </div>
-            <Button className="btn btn--transparent" text="Clear Completed" />
-          </div>
+          <ListOptions itemsLeft={itemsLength} />
         </div>
       </form>
     );
