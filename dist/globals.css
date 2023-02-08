@@ -21,6 +21,7 @@
   --clr-borders: hsl(235, 14%, 26%);
   --clr-body-bg: hsl(235, 21%, 11%);
   --clr-completed-item: hsl(233, 14%, 35%);
+  --clr-list-shadow: hsl(0, 0%, 0%, 0.5);
 }
 
 *,

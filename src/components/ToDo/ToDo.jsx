@@ -77,65 +77,67 @@ class ToDo extends React.Component {
           autoComplete="off"
         />
 
-        {/* Unordered list to display ToDo tasks */}
-        <ul className="todoList">
-          {/* Map over items in state and render each task item */}
-          {items.map((item, index) => {
-            return (
-              <div key={item.id} className="listItem">
-                <div className="completeItem">
-                  <Button
-                    onClick={() => this.handleToggleCompleted(item.id)}
+        <div className="todoListWrapper">
+          {/* Unordered list to display ToDo tasks */}
+          <ul className="todoList">
+            {/* Map over items in state and render each task item */}
+            {items.map((item, index) => {
+              return (
+                <div key={item.id} className="listItem">
+                  <div className="completeItem">
+                    <Button
+                      onClick={() => this.handleToggleCompleted(item.id)}
+                      className={
+                        item.completed
+                          ? "btn btn--completeItem showCompletedBackground"
+                          : "btn btn--completeItem"
+                      }
+                    />
+
+                    <img
+                      className={
+                        item.completed
+                          ? "completeItem__checkMark showCheckMark"
+                          : "completeItem__checkMark"
+                      }
+                      src={checkMark}
+                      alt="checked"
+                    />
+                  </div>
+
+                  <li
                     className={
                       item.completed
-                        ? "btn btn--completeItem showCompletedBackground"
-                        : "btn btn--completeItem"
+                        ? "listItem__item complete"
+                        : "listItem__item"
                     }
-                  />
+                  >
+                    {item.text}
+                  </li>
 
                   <img
-                    className={
-                      item.completed
-                        ? "completeItem__checkMark showCheckMark"
-                        : "completeItem__checkMark"
-                    }
-                    src={checkMark}
-                    alt="checked"
+                    onClick={() => this.handleDeleteItem(index)}
+                    className="listItem__delete"
+                    src={cross}
+                    alt="Delete Item"
                   />
                 </div>
+              );
+            })}
+          </ul>
 
-                <li
-                  className={
-                    item.completed
-                      ? "listItem__item complete"
-                      : "listItem__item"
-                  }
-                >
-                  {item.text}
-                </li>
-
-                <img
-                  onClick={() => this.handleDeleteItem(index)}
-                  className="listItem__delete"
-                  src={cross}
-                  alt="Delete Item"
-                />
-              </div>
-            );
-          })}
-        </ul>
-
-        <div className="listOptions">
-          <Button
-            className="btn btn--transparent"
-            text={`${itemsLength} items left`}
-          />
-          <div className="activeOptions">
-            <Button className="btn btn--transparent" text="All" />
-            <Button className="btn btn--transparent" text="Active" />
-            <Button className="btn btn--transparent" text="Completed" />
+          <div className="listOptions">
+            <Button
+              className="btn btn--transparent"
+              text={`${itemsLength} items left`}
+            />
+            <div className="activeOptions">
+              <Button className="btn btn--transparent" text="All" />
+              <Button className="btn btn--transparent" text="Active" />
+              <Button className="btn btn--transparent" text="Completed" />
+            </div>
+            <Button className="btn btn--transparent" text="Clear Completed" />
           </div>
-          <Button className="btn btn--transparent" text="Clear Completed" />
         </div>
       </form>
     );
