@@ -3,16 +3,17 @@ import "../ListOptions/ListOptions.scss";
 
 function ListOptions(props) {
   const { itemsLeft } = props;
+  const activeOptions = ["All", "Active", "Completed", "Clear Completed"];
+
   return (
     <div className="listOptions">
       <p className="itemsLeft">{itemsLeft} items left</p>
 
       <div className="activeOptions">
-        <Button className="btn btn--transparent" text="All" />
-        <Button className="btn btn--transparent" text="Active" />
-        <Button className="btn btn--transparent" text="Completed" />
+        {activeOptions.map((option, index) => (
+          <Button key={index} className="btn btn--transparent" text={option} />
+        ))}
       </div>
-      <Button className="btn btn--transparent" text="Clear Completed" />
     </div>
   );
 }

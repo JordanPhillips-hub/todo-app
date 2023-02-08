@@ -10,9 +10,13 @@
 
   .activeOptions {
     @include flex-item($gap: 18px, $justify: initial);
-
     & button {
       font-weight: 700;
+    }
+
+    & :last-child {
+      font-weight: 400;
+      margin-left: 38px;
     }
   }
 }

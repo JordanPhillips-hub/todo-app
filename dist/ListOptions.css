@@ -18,4 +18,8 @@
 }
 .listOptions .activeOptions button {
   font-weight: 700;
+}
+.listOptions .activeOptions :last-child {
+  font-weight: 400;
+  margin-left: 38px;
 }/*# sourceMappingURL=ListOptions.css.map */
