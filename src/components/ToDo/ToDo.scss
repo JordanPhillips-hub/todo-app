@@ -81,6 +81,7 @@
     .listOptions {
       @include flex-item($gap: 0, $justify: space-between);
       @include custom-border-top($radius: var(--br-sm), $top-l: 0, $top-r: 0);
+      font-size: px-rem(14);
 
       .activeOptions {
         @include flex-item($gap: 18px, $justify: initial);

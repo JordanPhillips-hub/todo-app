@@ -11,6 +11,15 @@
   border-radius: 50%;
 }
 
+.btn--transparent {
+  color: var(--clr-text-secondary);
+  font-size: 0.875rem;
+  line-height: 14px;
+}
+.btn--transparent:focus {
+  color: var(--clr-bright-blue);
+}
+
 .showCompletedBackground {
   background: linear-gradient(130deg, var(--clr-check-background-blue) 0%, var(--clr-check-background-purple) 100%);
 }/*# sourceMappingURL=Buttons.css.map */
