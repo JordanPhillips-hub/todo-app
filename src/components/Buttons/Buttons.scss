@@ -1,18 +1,17 @@
 .btn {
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  background-color: transparent;
 }
 
 .btn--completeItem {
-  border-radius: 50%;
-  border: 1px solid var(--clr-borders);
   width: 1.86em;
   height: 1.86em;
+  border: 1px solid var(--clr-borders);
+  border-radius: 50%;
 }
 
 .showCompletedBackground {
-  border: none;
   background: linear-gradient(
     130deg,
     var(--clr-check-background-blue) 0%,
