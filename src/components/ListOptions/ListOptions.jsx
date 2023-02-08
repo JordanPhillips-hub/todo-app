@@ -11,7 +11,12 @@ function ListOptions(props) {
 
       <div className="activeOptions">
         {activeOptions.map((option, index) => (
-          <Button key={index} className="btn btn--transparent" text={option} />
+          <Button
+            key={index}
+            className="btn btn--transparent"
+            text={option}
+            autoFocus={index === 0}
+          />
         ))}
       </div>
     </div>

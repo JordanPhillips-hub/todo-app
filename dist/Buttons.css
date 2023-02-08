@@ -3,6 +3,9 @@
   border: none;
   cursor: pointer;
 }
+.btn:focus {
+  outline: none;
+}
 
 .btn--completeItem {
   width: 1.86em;
