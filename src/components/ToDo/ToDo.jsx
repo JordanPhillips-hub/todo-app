@@ -11,16 +11,18 @@ class ToDo extends React.Component {
     this.state = {
       text: "",
       items: [],
+      active: [],
+      completed: [],
+      isFiltered: false,
+      filtered: [],
     };
   }
 
-  // Method for handling input change
   handleTodoInput = ({ target: { value } }) =>
     this.setState({
       text: value,
     });
 
-  // Method for handling form submission
   handleSubmit = (e) => {
     const createTodo = document.getElementById("todoInput");
     const { text } = this.state;
@@ -30,20 +32,15 @@ class ToDo extends React.Component {
       id: Date.now(),
     };
 
-    // Update state to add new item and clear input text
     this.setState((prev) => ({
       items: [...prev.items, newItem],
       text: "",
     }));
 
-    // Reset text input to be empty
     createTodo.value = "";
-
-    // Prevint default form submission
     e.preventDefault();
   };
 
-  // Method for handling completion of ToDo task
   handleToggleCompleted = (id) => {
     this.setState((prev) => {
       const updatedItems = prev.items.map((item) => {
@@ -57,27 +54,52 @@ class ToDo extends React.Component {
   };
 
   handleDeleteItem = (index) => {
-    this.setState((prev) => ({
-      items: prev.items.filter((item, i) => i !== index),
-    }));
+    this.setState((prev) => {
+      if (prev.isFiltered) {
+        return {
+          filtered: prev.filtered.filter((item, i) => i !== index),
+          items: prev.items.filter((item, i) => item !== prev.filtered[index]),
+        };
+      } else {
+        return {
+          items: prev.items.filter((item, i) => i !== index),
+        };
+      }
+    });
   };
 
-  test = (e) => {
-    console.log(e.target);
-    if (e.target.innerText === "Active") {
-      console.log("true");
+  handleFiltered = (e) => {
+    const { items } = this.state;
+    const optionButton = e.target;
+
+    if (optionButton.innerText === "Active") {
+      const active = items.filter((item) => !item.completed);
+      this.setState({ active: active });
+      this.setState({ isFiltered: true });
+      this.setState((prev) => ({
+        filtered: [...prev.active],
+      }));
+    } else if (optionButton.innerText === "Completed") {
+      const completed = items.filter((item) => item.completed);
+      this.setState({ completed: completed });
+      this.setState({ isFiltered: true });
+      this.setState((prev) => ({
+        filtered: [...prev.completed],
+      }));
     } else {
-      console.log("false");
+      this.setState({ isFiltered: false });
     }
   };
 
+  displayItemsLeft = () => {};
+
   render() {
-    const { items } = this.state;
+    const { items, isFiltered, filtered } = this.state;
     const itemsLength = items.length;
+    const filteredLength = filtered.length;
 
     return (
       <form onSubmit={this.handleSubmit} className="todo">
-        {/* Input element for creating new ToDo tasks */}
         <input
           onChange={this.handleTodoInput}
           id="todoInput"
@@ -88,57 +110,99 @@ class ToDo extends React.Component {
         />
 
         <div className="todoListWrapper">
-          {/* Unordered list to display ToDo tasks */}
           <ul className="todoList">
-            {/* Map over items in state and render each task item */}
-            {items.map((item, index) => {
-              return (
-                <div key={item.id} className="listItem">
-                  <div className="completeItem">
-                    <Button
-                      onClick={() => this.handleToggleCompleted(item.id)}
-                      className={
-                        item.completed
-                          ? "btn btn--completeItem showCompletedBackground"
-                          : "btn btn--completeItem"
-                      }
-                    />
+            {!isFiltered
+              ? items.map((item, index) => {
+                  return (
+                    <div key={item.id} className="listItem">
+                      <div className="completeItem">
+                        <Button
+                          onClick={() => this.handleToggleCompleted(item.id)}
+                          className={
+                            item.completed
+                              ? "btn btn--completeItem showCompletedBackground"
+                              : "btn btn--completeItem"
+                          }
+                        />
 
-                    <img
-                      className={
-                        item.completed
-                          ? "completeItem__checkMark showCheckMark"
-                          : "completeItem__checkMark"
-                      }
-                      src={checkMark}
-                      alt="checked"
-                    />
-                  </div>
+                        <img
+                          className={
+                            item.completed
+                              ? "completeItem__checkMark showCheckMark"
+                              : "completeItem__checkMark"
+                          }
+                          src={checkMark}
+                          alt="checked"
+                        />
+                      </div>
 
-                  <li
-                    className={
-                      item.completed
-                        ? "listItem__item complete"
-                        : "listItem__item"
-                    }
-                  >
-                    {item.text}
-                  </li>
+                      <li
+                        className={
+                          item.completed
+                            ? "listItem__item complete"
+                            : "listItem__item"
+                        }
+                      >
+                        {item.text}
+                      </li>
 
-                  <img
-                    onClick={() => this.handleDeleteItem(index)}
-                    className="listItem__delete"
-                    src={cross}
-                    alt="Delete Item"
-                  />
-                </div>
-              );
-            })}
+                      <img
+                        onClick={() => this.handleDeleteItem(index)}
+                        className="listItem__delete"
+                        src={cross}
+                        alt="Delete Item"
+                      />
+                    </div>
+                  );
+                })
+              : filtered.map((item, index) => {
+                  return (
+                    <div key={item.id} className="listItem">
+                      <div className="completeItem">
+                        <Button
+                          onClick={() => this.handleToggleCompleted(item.id)}
+                          className={
+                            item.completed
+                              ? "btn btn--completeItem showCompletedBackground"
+                              : "btn btn--completeItem"
+                          }
+                        />
+
+                        <img
+                          className={
+                            item.completed
+                              ? "completeItem__checkMark showCheckMark"
+                              : "completeItem__checkMark"
+                          }
+                          src={checkMark}
+                          alt="checked"
+                        />
+                      </div>
+
+                      <li
+                        className={
+                          item.completed
+                            ? "listItem__item complete"
+                            : "listItem__item"
+                        }
+                      >
+                        {item.text}
+                      </li>
+
+                      <img
+                        onClick={() => this.handleDeleteItem(index)}
+                        className="listItem__delete"
+                        src={cross}
+                        alt="Delete Item"
+                      />
+                    </div>
+                  );
+                })}
           </ul>
           <ListOptions
             className="btn btn--transparent"
-            itemsLeft={itemsLength}
-            test={this.test}
+            itemsLeft={isFiltered ? filteredLength : itemsLength}
+            test={this.handleFiltered}
           />
         </div>
       </form>
