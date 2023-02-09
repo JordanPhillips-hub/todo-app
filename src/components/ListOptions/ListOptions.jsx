@@ -2,7 +2,7 @@ import Button from "../Buttons/Button";
 import "../ListOptions/ListOptions.scss";
 
 function ListOptions(props) {
-  const { itemsLeft } = props;
+  const { itemsLeft, className, test } = props;
   const activeOptions = ["All", "Active", "Completed", "Clear Completed"];
 
   return (
@@ -12,10 +12,11 @@ function ListOptions(props) {
       <div className="activeOptions">
         {activeOptions.map((option, index) => (
           <Button
+            className={className}
             key={index}
-            className="btn btn--transparent"
             text={option}
             autoFocus={index === 0}
+            onClick={test}
           />
         ))}
       </div>

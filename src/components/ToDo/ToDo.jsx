@@ -62,6 +62,15 @@ class ToDo extends React.Component {
     }));
   };
 
+  test = (e) => {
+    console.log(e.target);
+    if (e.target.innerText === "Active") {
+      console.log("true");
+    } else {
+      console.log("false");
+    }
+  };
+
   render() {
     const { items } = this.state;
     const itemsLength = items.length;
@@ -126,7 +135,11 @@ class ToDo extends React.Component {
               );
             })}
           </ul>
-          <ListOptions itemsLeft={itemsLength} />
+          <ListOptions
+            className="btn btn--transparent"
+            itemsLeft={itemsLength}
+            test={this.test}
+          />
         </div>
       </form>
     );
