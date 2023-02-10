@@ -20,6 +20,9 @@
 .listOptions .activeOptions button {
   font-weight: 700;
 }
+.listOptions .activeOptions button:hover {
+  color: var(--clr-text-color-rimary);
+}
 .listOptions .activeOptions :last-child {
   font-weight: 400;
   margin-left: 38px;
