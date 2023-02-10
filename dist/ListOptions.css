@@ -6,6 +6,7 @@
   border-radius: var(--br-sm);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  margin-bottom: 8px;
 }
 .listOptions .itemsLeft {
   font-size: 0.875rem;
