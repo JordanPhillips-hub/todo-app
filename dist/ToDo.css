@@ -7,14 +7,12 @@
   font-size: 1.125rem;
   padding: 1.11em 1.33em;
 }
-.todo :is(.todo__input, .listItem) {
-  border-radius: var(--br-sm);
-}
 .todo__input {
   width: inherit;
   letter-spacing: -0.25px;
   border: 1px solid var(--clr-borders);
   margin-bottom: 24px;
+  border-radius: var(--br-sm);
 }
 .todo__input:focus {
   outline: none;

@@ -10,12 +10,9 @@
     padding: 1.11em 1.33em;
   }
 
-  & :is(.todo__input, .listItem) {
-    border-radius: var(--br-sm);
-  }
-
   &__input {
     @include todo-input-styles();
+    border-radius: var(--br-sm);
   }
 
   .todoListWrapper {
