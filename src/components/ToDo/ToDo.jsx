@@ -98,8 +98,7 @@ class ToDo extends React.Component {
 
   render() {
     const { items, isFiltered, filtered } = this.state;
-    const itemsLength = items.length;
-    const filteredLength = filtered.length;
+    const itemsLength = isFiltered ? filtered.length : items.length;
 
     return (
       <form onSubmit={this.handleSubmit} className="todo">
@@ -136,7 +135,7 @@ class ToDo extends React.Component {
           </ul>
           <ListOptions
             className="btn btn--transparent"
-            itemsLeft={isFiltered ? filteredLength : itemsLength}
+            itemsLeft={itemsLength}
             handleFiltered={this.handleFiltered}
           />
         </div>
