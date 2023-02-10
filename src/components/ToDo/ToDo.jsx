@@ -9,8 +9,6 @@ class ToDo extends React.Component {
     this.state = {
       text: "",
       items: [],
-      active: [],
-      completed: [],
       isFiltered: false,
       filtered: [],
     };
