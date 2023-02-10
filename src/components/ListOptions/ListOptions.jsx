@@ -7,7 +7,9 @@ function ListOptions(props) {
 
   return (
     <div className="listOptions">
-      <p className="itemsLeft">{itemsLeft} items left</p>
+      <p className="itemsLeft">
+        {itemsLeft === 1 ? `${itemsLeft} item left` : `${itemsLeft} items left`}
+      </p>
 
       <div className="activeOptions">
         {activeOptions.map((option, index) => (
