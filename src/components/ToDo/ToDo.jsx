@@ -207,7 +207,7 @@ class ToDo extends React.Component {
           <ListOptions
             className="btn btn--transparent"
             itemsLeft={isFiltered ? filteredLength : itemsLength}
-            test={this.handleFiltered}
+            handleFiltered={this.handleFiltered}
           />
         </div>
       </form>

@@ -2,7 +2,7 @@ import Button from "../Buttons/Button";
 import "../ListOptions/ListOptions.scss";
 
 function ListOptions(props) {
-  const { itemsLeft, className, test } = props;
+  const { itemsLeft, className, handleFiltered } = props;
   const activeOptions = ["All", "Active", "Completed", "Clear Completed"];
 
   return (
@@ -18,7 +18,7 @@ function ListOptions(props) {
             key={index}
             text={option}
             autoFocus={index === 0}
-            onClick={test}
+            onClick={handleFiltered}
           />
         ))}
       </div>
