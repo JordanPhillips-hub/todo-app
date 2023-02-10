@@ -1,8 +1,6 @@
 import React from "react";
-import Button from "../Buttons/Button";
+import TodoItem from "../TodoItem/TodoItem";
 import ListOptions from "../ListOptions/ListOptions";
-import checkMark from "../../assets/images/icon-check.svg";
-import cross from "../../assets/images/icon-cross.svg";
 import "../ToDo/ToDo.scss";
 
 class ToDo extends React.Component {
@@ -117,92 +115,24 @@ class ToDo extends React.Component {
         <div className="todoListWrapper">
           <ul className="todoList">
             {!isFiltered
-              ? items.map((item, index) => {
-                  return (
-                    <div key={item.id} className="listItem">
-                      <div className="completeItem">
-                        <Button
-                          onClick={() => this.handleToggleCompleted(item.id)}
-                          className={
-                            item.completed
-                              ? "btn btn--completeItem showCompletedBackground"
-                              : "btn btn--completeItem"
-                          }
-                        />
-
-                        <img
-                          className={
-                            item.completed
-                              ? "completeItem__checkMark showCheckMark"
-                              : "completeItem__checkMark"
-                          }
-                          src={checkMark}
-                          alt="checked"
-                        />
-                      </div>
-
-                      <li
-                        className={
-                          item.completed
-                            ? "listItem__item complete"
-                            : "listItem__item"
-                        }
-                      >
-                        {item.text}
-                      </li>
-
-                      <img
-                        onClick={() => this.handleDeleteItem(index)}
-                        className="listItem__delete"
-                        src={cross}
-                        alt="Delete Item"
-                      />
-                    </div>
-                  );
-                })
-              : filtered.map((item, index) => {
-                  return (
-                    <div key={item.id} className="listItem">
-                      <div className="completeItem">
-                        <Button
-                          onClick={() => this.handleToggleCompleted(item.id)}
-                          className={
-                            item.completed
-                              ? "btn btn--completeItem showCompletedBackground"
-                              : "btn btn--completeItem"
-                          }
-                        />
-
-                        <img
-                          className={
-                            item.completed
-                              ? "completeItem__checkMark showCheckMark"
-                              : "completeItem__checkMark"
-                          }
-                          src={checkMark}
-                          alt="checked"
-                        />
-                      </div>
-
-                      <li
-                        className={
-                          item.completed
-                            ? "listItem__item complete"
-                            : "listItem__item"
-                        }
-                      >
-                        {item.text}
-                      </li>
-
-                      <img
-                        onClick={() => this.handleDeleteItem(index)}
-                        className="listItem__delete"
-                        src={cross}
-                        alt="Delete Item"
-                      />
-                    </div>
-                  );
-                })}
+              ? items.map((item, index) => (
+                  <TodoItem
+                    key={item.id}
+                    item={item}
+                    handleToggleCompleted={this.handleToggleCompleted}
+                    handleDeleteItem={this.handleDeleteItem}
+                    index={index}
+                  />
+                ))
+              : filtered.map((item, index) => (
+                  <TodoItem
+                    key={item.id}
+                    item={item}
+                    handleToggleCompleted={this.handleToggleCompleted}
+                    handleDeleteItem={this.handleDeleteItem}
+                    index={index}
+                  />
+                ))}
           </ul>
           <ListOptions
             className="btn btn--transparent"
