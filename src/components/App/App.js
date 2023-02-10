@@ -20,8 +20,15 @@ function App() {
       : appBg.style.backgroundImage = `url(${darkBG})`;
   };
 
+  window.addEventListener(('load'), function () {
+    const appBg = document.querySelector('[data-theme]');
+    theme === 'dark'
+      ? appBg.style.backgroundImage = `url(${darkBG})`
+      : appBg.style.backgroundImage = `url(${lightBG})`;
+  })
+
   return (
-    <div className="appBg" data-theme={theme}>
+    <div id="AppBg" className="appBg" data-theme={theme}>
       <div className="app">
         <header>
           <h1>TODO</h1>
