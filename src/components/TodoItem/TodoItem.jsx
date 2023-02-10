@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Buttons/Button";
 import checkMark from "../../assets/images/icon-check.svg";
 import cross from "../../assets/images/icon-cross.svg";
+import "./TodoItem.scss";
 
 const TodoItem = ({ item, handleToggleCompleted, handleDeleteItem, index }) => (
   <div key={item.id} className="listItem">
