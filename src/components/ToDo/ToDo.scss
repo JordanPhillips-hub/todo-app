@@ -19,4 +19,12 @@
     box-shadow: 0px 35px 50px var(--clr-list-shadow);
     @include custom-border-top($radius: var(--br-sm), $top-l: 0, $top-r: 0);
   }
+
+  .todoList :first-child.listItem {
+    @include custom-border-top(
+      $radius: 0,
+      $top-l: var(--br-sm),
+      $top-r: var(--br-sm)
+    );
+  }
 }

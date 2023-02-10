@@ -24,4 +24,9 @@
   border-radius: var(--br-sm);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.todo .todoList :first-child.listItem {
+  border-radius: 0;
+  border-top-left-radius: var(--br-sm);
+  border-top-right-radius: var(--br-sm);
 }/*# sourceMappingURL=ToDo.css.map */
