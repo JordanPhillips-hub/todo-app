@@ -30,5 +30,10 @@
         font-weight: 700;
       }
     }
+
+    footer {
+      color: var(--clr-text-secondary);
+      font-size: px-rem(14);
+    }
   }
 }

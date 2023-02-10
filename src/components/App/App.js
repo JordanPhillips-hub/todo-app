@@ -42,8 +42,11 @@ function App() {
         <main>
           <ToDo />
         </main>
-      </div>
 
+        <footer>
+          <small>Drag and drop to reorder list</small>
+        </footer>
+      </div>
     </div>
   );
 }

@@ -93,4 +93,8 @@ ol {
   font-size: 2.5rem;
   letter-spacing: 15px;
   font-weight: 700;
+}
+.appBg .app footer {
+  color: var(--clr-text-secondary);
+  font-size: 0.875rem;
 }/*# sourceMappingURL=App.css.map */
