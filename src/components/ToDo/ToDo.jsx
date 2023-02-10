@@ -88,6 +88,7 @@ class ToDo extends React.Component {
       case "Clear Completed":
         this.setState({
           items: items.filter((item) => !item.completed),
+          completed: [],
           isFiltered: false,
         });
         break;
