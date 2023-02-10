@@ -30,7 +30,7 @@ class ToDo extends React.Component {
 
     this.setState((prev) => ({
       items: [...prev.items, newItem],
-      filtered: [...prev.items, newItem],
+      filtered: [...prev.filtered, newItem],
       text: "",
     }));
 
