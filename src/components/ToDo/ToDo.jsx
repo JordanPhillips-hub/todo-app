@@ -30,6 +30,7 @@ class ToDo extends React.Component {
 
     this.setState((prev) => ({
       items: [...prev.items, newItem],
+      filtered: [...prev.items, newItem],
       text: "",
     }));
 
@@ -39,13 +40,18 @@ class ToDo extends React.Component {
 
   handleToggleCompleted = (id) => {
     this.setState((prev) => {
-      const updatedItems = prev.items.map((item) => {
-        if (item.id === id) {
-          return { ...item, completed: !item.completed };
-        }
-        return item;
-      });
-      return { items: updatedItems };
+      const updateItem = (items) =>
+        items.map((item) => {
+          if (item.id === id) {
+            return { ...item, completed: !item.completed };
+          }
+          return item;
+        });
+
+      return {
+        items: updateItem(prev.items),
+        filtered: updateItem(prev.filtered),
+      };
     });
   };
 
