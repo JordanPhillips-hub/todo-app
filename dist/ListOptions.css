@@ -21,7 +21,7 @@
   font-weight: 700;
 }
 .listOptions .activeOptions button:hover {
-  color: var(--clr-text-color-rimary);
+  color: var(--clr-text-primary);
 }
 .listOptions .activeOptions :last-child {
   font-weight: 400;
