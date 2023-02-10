@@ -69,29 +69,33 @@ class ToDo extends React.Component {
   };
 
   handleFiltered = (e) => {
+    const optionButton = e.target.innerText;
     const { items } = this.state;
-    const optionButton = e.target;
 
-    if (optionButton.innerText === "Active") {
-      const active = items.filter((item) => !item.completed);
-      this.setState({ active: active });
-      this.setState({ isFiltered: true });
-      this.setState((prev) => ({
-        filtered: [...prev.active],
-      }));
-    } else if (optionButton.innerText === "Completed") {
-      const completed = items.filter((item) => item.completed);
-      this.setState({ completed: completed });
-      this.setState({ isFiltered: true });
-      this.setState((prev) => ({
-        filtered: [...prev.completed],
-      }));
-    } else {
-      this.setState({ isFiltered: false });
+    switch (optionButton) {
+      case "Active":
+        this.setState({
+          filtered: items.filter((item) => !item.completed),
+          isFiltered: true,
+        });
+        break;
+      case "Completed":
+        this.setState({
+          filtered: items.filter((item) => item.completed),
+          isFiltered: true,
+        });
+        break;
+      case "Clear Completed":
+        this.setState({
+          items: items.filter((item) => !item.completed),
+          isFiltered: false,
+        });
+        break;
+      default:
+        this.setState({ isFiltered: false });
+        break;
     }
   };
-
-  displayItemsLeft = () => {};
 
   render() {
     const { items, isFiltered, filtered } = this.state;
