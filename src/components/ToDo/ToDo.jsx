@@ -100,6 +100,40 @@ class ToDo extends React.Component {
     }
   };
 
+  componentDidMount() {
+    const listContainer = document.getElementById("listContainer");
+
+    listContainer.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(listContainer, e.clientY);
+      const listItem = document.querySelector(".listItem--dragging");
+      console.log(afterElement);
+      if (afterElement == null) {
+        listContainer.appendChild(listItem);
+      } else {
+        listContainer.insertBefore(listItem, afterElement);
+      }
+    });
+
+    function getDragAfterElement(container, y) {
+      const draggableElements = [
+        ...container.querySelectorAll(".listItem:not(.listItem--dragging)"),
+      ];
+      return draggableElements.reduce(
+        (closest, child) => {
+          const box = child.getBoundingClientRect();
+          const offset = y - box.top - box.height / 2;
+          if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+          } else {
+            return closest;
+          }
+        },
+        { offset: Number.NEGATIVE_INFINITY }
+      ).element;
+    }
+  }
+
   render() {
     const { items, isFiltered, filtered } = this.state;
     const itemsLength = isFiltered ? filtered.length : items.length;
@@ -116,7 +150,7 @@ class ToDo extends React.Component {
         />
 
         <div className="todoListWrapper">
-          <ul className="todoList">
+          <ul id="listContainer" className="todoList">
             {!isFiltered
               ? items.map((item, index) => (
                   <TodoItem

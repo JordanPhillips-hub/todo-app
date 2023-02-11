@@ -43,4 +43,7 @@
 }
 .listItem .completeItem .showCheckMark {
   transform: scale(1);
+}
+.listItem--dragging {
+  opacity: 0.5;
 }/*# sourceMappingURL=TodoItem.css.map */
