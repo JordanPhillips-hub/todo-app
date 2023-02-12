@@ -21,7 +21,7 @@ class ToDo extends React.Component {
       e.preventDefault();
       const afterElement = getDragAfterElement(listContainer, e.clientY);
       const listItem = document.querySelector(".listItem--dragging");
-
+      console.log(listItem);
       if (afterElement == null) {
         listContainer.appendChild(listItem);
       } else {

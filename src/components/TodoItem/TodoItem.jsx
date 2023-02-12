@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../Buttons/Button";
 import checkMark from "../../assets/images/icon-check.svg";
 import cross from "../../assets/images/icon-cross.svg";
@@ -7,16 +7,18 @@ import "./TodoItem.scss";
 function TodoItem(props) {
   const { item, handleToggleCompleted, handleDeleteItem, index } = props;
 
-  const listItems = document.querySelectorAll(".listItem");
-  listItems.forEach((item) => {
-    item.addEventListener("dragstart", () => {
-      item.classList.add("listItem--dragging");
-    });
+  useEffect(() => {
+    const listItems = document.querySelectorAll(".listItem");
+    listItems.forEach((item) => {
+      item.addEventListener("dragstart", () => {
+        item.classList.add("listItem--dragging");
+      });
 
-    item.addEventListener("dragend", () => {
-      item.classList.remove("listItem--dragging");
+      item.addEventListener("dragend", () => {
+        item.classList.remove("listItem--dragging");
+      });
     });
-  });
+  }, []);
 
   return (
     <div key={item.id} className="listItem" draggable="true">
