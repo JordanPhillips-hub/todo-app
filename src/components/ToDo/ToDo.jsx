@@ -9,9 +9,56 @@ class ToDo extends React.Component {
     this.state = {
       text: "",
       items: [],
-      isFiltered: false,
+      isFiltered: true,
       filtered: [],
     };
+  }
+
+  componentDidMount() {
+    const listContainer = document.getElementById("listContainer");
+
+    listContainer.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(listContainer, e.clientY);
+      const listItem = document.querySelector(".listItem--dragging");
+
+      if (afterElement == null) {
+        listContainer.appendChild(listItem);
+      } else {
+        listContainer.insertBefore(listItem, afterElement);
+      }
+
+      const items = [...this.state.items];
+      const draggedItemIndex = items.findIndex(
+        (item) => item.id === listItem.id
+      );
+      const [draggedItem] = items.splice(draggedItemIndex, 1);
+      items.splice(
+        [...listContainer.children].indexOf(listItem),
+        0,
+        draggedItem
+      );
+
+      this.setState({ items });
+    });
+
+    function getDragAfterElement(container, y) {
+      const draggableElements = [
+        ...container.querySelectorAll(".listItem:not(.listItem--dragging)"),
+      ];
+      return draggableElements.reduce(
+        (closest, child) => {
+          const box = child.getBoundingClientRect();
+          const offset = y - box.top - box.height / 2;
+          if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+          } else {
+            return closest;
+          }
+        },
+        { offset: Number.NEGATIVE_INFINITY }
+      ).element;
+    }
   }
 
   handleTodoInput = ({ target: { value } }) =>
@@ -78,61 +125,23 @@ class ToDo extends React.Component {
       case "Active":
         this.setState({
           filtered: items.filter((item) => !item.completed),
-          isFiltered: true,
         });
         break;
       case "Completed":
         this.setState({
           filtered: items.filter((item) => item.completed),
-          isFiltered: true,
         });
         break;
       case "Clear Completed":
         this.setState({
           items: items.filter((item) => !item.completed),
-          completed: [],
-          isFiltered: false,
+          filtered: [],
         });
         break;
       default:
-        this.setState({ isFiltered: false });
-        break;
+        this.setState({ filtered: items });
     }
   };
-
-  componentDidMount() {
-    const listContainer = document.getElementById("listContainer");
-
-    listContainer.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      const afterElement = getDragAfterElement(listContainer, e.clientY);
-      const listItem = document.querySelector(".listItem--dragging");
-      console.log(afterElement);
-      if (afterElement == null) {
-        listContainer.appendChild(listItem);
-      } else {
-        listContainer.insertBefore(listItem, afterElement);
-      }
-    });
-
-    function getDragAfterElement(container, y) {
-      const draggableElements = [
-        ...container.querySelectorAll(".listItem:not(.listItem--dragging)"),
-      ];
-      return draggableElements.reduce(
-        (closest, child) => {
-          const box = child.getBoundingClientRect();
-          const offset = y - box.top - box.height / 2;
-          if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-          } else {
-            return closest;
-          }
-        },
-        { offset: Number.NEGATIVE_INFINITY }
-      ).element;
-    }
-  }
 
   render() {
     const { items, isFiltered, filtered } = this.state;
@@ -151,25 +160,15 @@ class ToDo extends React.Component {
 
         <div className="todoListWrapper">
           <ul id="listContainer" className="todoList">
-            {!isFiltered
-              ? items.map((item, index) => (
-                  <TodoItem
-                    key={item.id}
-                    item={item}
-                    handleToggleCompleted={this.handleToggleCompleted}
-                    handleDeleteItem={this.handleDeleteItem}
-                    index={index}
-                  />
-                ))
-              : filtered.map((item, index) => (
-                  <TodoItem
-                    key={item.id}
-                    item={item}
-                    handleToggleCompleted={this.handleToggleCompleted}
-                    handleDeleteItem={this.handleDeleteItem}
-                    index={index}
-                  />
-                ))}
+            {filtered.map((item, index) => (
+              <TodoItem
+                key={item.id}
+                item={item}
+                handleToggleCompleted={this.handleToggleCompleted}
+                handleDeleteItem={this.handleDeleteItem}
+                index={index}
+              />
+            ))}
           </ul>
           <ListOptions
             className="btn btn--transparent"
