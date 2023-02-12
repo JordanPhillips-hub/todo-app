@@ -9,7 +9,6 @@ class ToDo extends React.Component {
     this.state = {
       text: "",
       items: [],
-      isFiltered: true,
       filtered: [],
     };
   }
@@ -39,7 +38,7 @@ class ToDo extends React.Component {
         draggedItem
       );
 
-      this.setState({ items });
+      // this.setState({ items });
     });
 
     function getDragAfterElement(container, y) {
@@ -104,42 +103,40 @@ class ToDo extends React.Component {
 
   handleDeleteItem = (index) => {
     this.setState((prev) => {
-      if (prev.isFiltered) {
-        return {
-          filtered: prev.filtered.filter((item, i) => i !== index),
-          items: prev.items.filter((item, i) => item !== prev.filtered[index]),
-        };
-      } else {
-        return {
-          items: prev.items.filter((item, i) => i !== index),
-        };
-      }
+      return {
+        items: prev.items.filter((item, i) => i !== index),
+        filtered: prev.filtered.filter((item, i) => i !== index),
+      };
     });
   };
 
   handleFiltered = (e) => {
     const optionButton = e.target.innerText;
-    const { items } = this.state;
+    const { items, filtered } = this.state;
 
     switch (optionButton) {
       case "Active":
         this.setState({
-          filtered: items.filter((item) => !item.completed),
+          items: filtered.filter((item) => !item.completed),
         });
         break;
       case "Completed":
         this.setState({
-          filtered: items.filter((item) => item.completed),
+          items: filtered.filter((item) => item.completed),
         });
         break;
       case "Clear Completed":
         this.setState({
+          filtered: filtered.filter((item) => !item.completed),
           items: items.filter((item) => !item.completed),
-          filtered: [],
+        });
+        break;
+      case "All":
+        this.setState({
+          items: filtered,
         });
         break;
       default:
-        this.setState({ filtered: items });
     }
   };
 
@@ -160,7 +157,7 @@ class ToDo extends React.Component {
 
         <div className="todoListWrapper">
           <ul id="listContainer" className="todoList">
-            {filtered.map((item, index) => (
+            {items.map((item, index) => (
               <TodoItem
                 key={item.id}
                 item={item}
