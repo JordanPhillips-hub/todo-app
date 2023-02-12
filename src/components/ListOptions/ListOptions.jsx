@@ -17,7 +17,7 @@ function ListOptions(props) {
             className={className}
             key={index}
             text={option}
-            autoFocus={index === 0}
+            autoFocus={option === "All"}
             onClick={handleFiltered}
           />
         ))}
