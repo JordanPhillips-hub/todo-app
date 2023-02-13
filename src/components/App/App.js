@@ -1,6 +1,6 @@
 import React from "react";
 import useLocalStorage from "use-local-storage";
-import ToDo from "../ToDo/ToDo";
+import Todo from "../Todo/Todo";
 import Moon from "../../assets/images/icon-moon.svg";
 import Sun from "../../assets/images/icon-sun.svg";
 import lightBG from '../../assets/images/bg-desktop-light.jpg';
@@ -40,7 +40,7 @@ function App() {
         </header>
 
         <main>
-          <ToDo />
+          <Todo />
         </main>
 
         <footer>

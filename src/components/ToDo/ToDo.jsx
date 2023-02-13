@@ -2,7 +2,7 @@ import React from "react";
 import ListOptions from "../ListOptions/ListOptions";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import TodoItem from "../TodoItem/TodoItem";
-import "./ToDo.scss";
+import "./Todo.scss";
 
 class ToDo extends React.Component {
   constructor() {
