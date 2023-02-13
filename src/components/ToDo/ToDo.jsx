@@ -17,9 +17,9 @@ class ToDo extends React.Component {
     };
   }
 
-  handleTodoInput = (e) => this.setState({ text: e.target.value });
+  onTodoInputChange = (e) => this.setState({ text: e.target.value });
 
-  handleSubmit = (e) => {
+  onFormSubmit = (e) => {
     const createTodo = document.getElementById("todoInput");
     const { text } = this.state;
     const newItem = {
@@ -96,9 +96,9 @@ class ToDo extends React.Component {
     const itemsLength = isFiltered ? filtered.length : items.length;
 
     return (
-      <form onSubmit={this.handleSubmit} className="todo">
+      <form onSubmit={this.onFormSubmit} className="todo">
         <input
-          onChange={this.handleTodoInput}
+          onChange={this.onTodoInputChange}
           id="todoInput"
           className="todo__input"
           type="text"
