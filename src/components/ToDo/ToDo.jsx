@@ -1,11 +1,8 @@
 import React from "react";
 import ListOptions from "../ListOptions/ListOptions";
-import Button from "../Buttons/Button";
-import checkMark from "../../assets/images/icon-check.svg";
-import cross from "../../assets/images/icon-cross.svg";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import "../ToDo/ToDo.scss";
-import "../TodoItem/TodoItem.scss";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import TodoItem from "../TodoItem/TodoItem";
+import "./ToDo.scss";
 
 class ToDo extends React.Component {
   constructor() {
@@ -129,68 +126,15 @@ class ToDo extends React.Component {
                   {...provided.droppableProps}
                 >
                   {items.map((item, index) => (
-                    <Draggable
+                    <TodoItem
                       key={item.id}
-                      draggableId={"draggable-" + item.id}
+                      item={item}
                       index={index}
-                    >
-                      {(provided, snapshot) => (
-                        <div
-                          key={item.id}
-                          className="listItem"
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          ref={provided.innerRef}
-                          style={{
-                            ...provided.draggableProps.style,
-                            opacity: snapshot.isDragging ? "0.7" : "1",
-                            boxShadow: snapshot.isDragging
-                              ? "0 0 0.4rem hsla(280, 87%, 65%, 0.8)"
-                              : "none",
-                          }}
-                        >
-                          <div className="completeItem">
-                            <Button
-                              onClick={() =>
-                                this.handleToggleCompleted(item.id)
-                              }
-                              className={
-                                item.completed
-                                  ? "btn btn--completeItem showCompletedBackground"
-                                  : "btn btn--completeItem"
-                              }
-                            />
-
-                            <img
-                              className={
-                                item.completed
-                                  ? "completeItem__checkMark showCheckMark"
-                                  : "completeItem__checkMark"
-                              }
-                              src={checkMark}
-                              alt="checked"
-                            />
-                          </div>
-
-                          <li
-                            className={
-                              item.completed
-                                ? "listItem__item complete"
-                                : "listItem__item"
-                            }
-                          >
-                            {item.text}
-                          </li>
-
-                          <img
-                            onClick={() => this.handleDeleteItem(index)}
-                            className="listItem__delete"
-                            src={cross}
-                            alt="delete"
-                          />
-                        </div>
-                      )}
-                    </Draggable>
+                      handleDeleteItem={() => this.handleDeleteItem(index)}
+                      handleToggleCompleted={() =>
+                        this.handleToggleCompleted(item.id)
+                      }
+                    />
                   ))}
                   {provided.placeholder}
                 </ul>
