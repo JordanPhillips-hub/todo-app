@@ -11,10 +11,8 @@
 .listItem:hover :last-child.listItem__delete {
   display: block;
 }
-.listItem :is(.listItem__item, .listItem__delete):hover {
-  cursor: pointer;
-}
 .listItem__delete {
+  cursor: pointer;
   display: none;
   justify-content: flex-end;
 }

@@ -116,11 +116,12 @@ class ToDo extends React.Component {
           onDragEnd={(param) => {
             const srcIndex = param.source.index;
             const destIndex = param.destination.index;
+
             this.setState((prev) => {
               const items = [...prev.items];
               const [removed] = items.splice(srcIndex, 1);
               items.splice(destIndex, 0, removed);
-              return { items };
+              return { items, filtered: items };
             });
           }}
         >
