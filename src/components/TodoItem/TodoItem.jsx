@@ -10,7 +10,6 @@ const TodoItem = ({ deleteTodo, item, index, toggleTodoCompletion }) => (
         key={item.id}
         className="listItem"
         {...provided.draggableProps}
-        {...provided.dragHandleProps}
         ref={provided.innerRef}
         style={{
           ...provided.draggableProps.style,
@@ -26,6 +25,7 @@ const TodoItem = ({ deleteTodo, item, index, toggleTodoCompletion }) => (
           itemId={item.id}
         />
         <li
+          {...provided.dragHandleProps}
           className={
             item.completed ? "listItem__item complete" : "listItem__item"
           }
