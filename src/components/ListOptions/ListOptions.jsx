@@ -1,8 +1,7 @@
 import Button from "../Buttons/Button";
 import "../ListOptions/ListOptions.scss";
 
-function ListOptions(props) {
-  const { itemsLeft, className, filterTodos } = props;
+const ListOptions = ({ itemsLeft, className, filterTodos }) => {
   const activeOptions = ["All", "Active", "Completed", "Clear Completed"];
 
   return (
@@ -24,6 +23,6 @@ function ListOptions(props) {
       </div>
     </div>
   );
-}
+};
 
 export default ListOptions;
