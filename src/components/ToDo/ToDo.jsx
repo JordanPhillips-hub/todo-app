@@ -14,7 +14,7 @@ class ToDo extends React.Component {
     };
   }
 
-  onTodoInputChange = (e) => this.setState({ text: e.target.value });
+  updateTodoInput = (e) => this.setState({ text: e.target.value });
 
   onFormSubmit = (e) => {
     const createTodo = document.getElementById("todoInput");
@@ -35,7 +35,7 @@ class ToDo extends React.Component {
     e.preventDefault();
   };
 
-  handleToggleCompleted = (id) => {
+  toggleTodoCompletion = (id) => {
     this.setState((prev) => {
       const items = prev.items.map((item) => {
         return item.id === id ? { ...item, completed: !item.completed } : item;
@@ -48,7 +48,7 @@ class ToDo extends React.Component {
     });
   };
 
-  handleDeleteItem = (index) => {
+  deleteTodo = (index) => {
     this.setState((prev) => {
       const items = prev.items.filter((item, i) => i !== index);
       return {
@@ -58,7 +58,7 @@ class ToDo extends React.Component {
     });
   };
 
-  handleFiltered = (e) => {
+  filterTodos = (e) => {
     const optionButton = e.target.innerText;
     const { items, filtered } = this.state;
 
@@ -95,7 +95,7 @@ class ToDo extends React.Component {
     return (
       <form onSubmit={this.onFormSubmit} className="todo">
         <input
-          onChange={this.onTodoInputChange}
+          onChange={this.updateTodoInput}
           id="todoInput"
           className="todo__input"
           type="text"
@@ -130,9 +130,9 @@ class ToDo extends React.Component {
                       key={item.id}
                       item={item}
                       index={index}
-                      handleDeleteItem={() => this.handleDeleteItem(index)}
-                      handleToggleCompleted={() =>
-                        this.handleToggleCompleted(item.id)
+                      deleteTodo={() => this.deleteTodo(index)}
+                      toggleTodoCompletion={() =>
+                        this.toggleTodoCompletion(item.id)
                       }
                     />
                   ))}
@@ -143,7 +143,7 @@ class ToDo extends React.Component {
             <ListOptions
               className="btn btn--transparent"
               itemsLeft={itemsLength}
-              handleFiltered={this.handleFiltered}
+              filterTodos={this.filterTodos}
             />
           </div>
         </DragDropContext>

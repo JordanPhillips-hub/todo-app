@@ -2,10 +2,10 @@ import Button from "../Buttons/Button";
 import checkMark from "../../assets/images/icon-check.svg";
 import "../TodoItem/TodoItem.scss";
 
-const CompleteItem = ({ handleToggleCompleted, completed }) => (
+const CompleteItem = ({ toggleTodoCompletion, completed }) => (
   <div className="completeItem">
     <Button
-      onClick={handleToggleCompleted}
+      onClick={toggleTodoCompletion}
       className={
         completed
           ? "btn btn--completeItem showCompletedBackground"

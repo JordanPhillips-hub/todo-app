@@ -3,7 +3,7 @@ import { Draggable } from "react-beautiful-dnd";
 import cross from "../../assets/images/icon-cross.svg";
 import "../TodoItem/TodoItem.scss";
 
-const TodoItem = ({ handleDeleteItem, item, index, handleToggleCompleted }) => (
+const TodoItem = ({ deleteTodo, item, index, toggleTodoCompletion }) => (
   <Draggable key={item.id} draggableId={`draggable-${item.id}`} index={index}>
     {(provided, snapshot) => (
       <div
@@ -21,7 +21,7 @@ const TodoItem = ({ handleDeleteItem, item, index, handleToggleCompleted }) => (
         }}
       >
         <CompleteItem
-          handleToggleCompleted={handleToggleCompleted}
+          toggleTodoCompletion={toggleTodoCompletion}
           completed={item.completed}
           itemId={item.id}
         />
@@ -33,7 +33,7 @@ const TodoItem = ({ handleDeleteItem, item, index, handleToggleCompleted }) => (
           {item.text}
         </li>
         <img
-          onClick={handleDeleteItem}
+          onClick={deleteTodo}
           className="listItem__delete"
           src={cross}
           alt="delete"
