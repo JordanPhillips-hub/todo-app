@@ -17,10 +17,7 @@ class ToDo extends React.Component {
     };
   }
 
-  handleTodoInput = ({ target: { value } }) =>
-    this.setState({
-      text: value,
-    });
+  handleTodoInput = (e) => this.setState({ text: e.target.value });
 
   handleSubmit = (e) => {
     const createTodo = document.getElementById("todoInput");
@@ -43,26 +40,23 @@ class ToDo extends React.Component {
 
   handleToggleCompleted = (id) => {
     this.setState((prev) => {
-      const updateItem = (items) =>
-        items.map((item) => {
-          if (item.id === id) {
-            return { ...item, completed: !item.completed };
-          }
-          return item;
-        });
+      const items = prev.items.map((item) => {
+        return item.id === id ? { ...item, completed: !item.completed } : item;
+      });
 
       return {
-        items: updateItem(prev.items),
-        filtered: updateItem(prev.filtered),
+        items,
+        filtered: items,
       };
     });
   };
 
   handleDeleteItem = (index) => {
     this.setState((prev) => {
+      const items = prev.items.filter((item, i) => i !== index);
       return {
-        items: prev.items.filter((item, i) => i !== index),
-        filtered: prev.filtered.filter((item, i) => i !== index),
+        items,
+        filtered: items,
       };
     });
   };
