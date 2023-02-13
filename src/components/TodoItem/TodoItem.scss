@@ -8,11 +8,8 @@
     display: block;
   }
 
-  & :is(&__item, &__delete):hover {
-    cursor: pointer;
-  }
-
   &__delete {
+    cursor: pointer;
     display: none;
     justify-content: flex-end;
   }

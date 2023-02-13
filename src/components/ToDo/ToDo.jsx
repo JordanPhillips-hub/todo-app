@@ -1,7 +1,11 @@
 import React from "react";
-import TodoItem from "../TodoItem/TodoItem";
 import ListOptions from "../ListOptions/ListOptions";
+import Button from "../Buttons/Button";
+import checkMark from "../../assets/images/icon-check.svg";
+import cross from "../../assets/images/icon-cross.svg";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "../ToDo/ToDo.scss";
+import "../TodoItem/TodoItem.scss";
 
 class ToDo extends React.Component {
   constructor() {
@@ -11,55 +15,6 @@ class ToDo extends React.Component {
       items: [],
       filtered: [],
     };
-  }
-
-  componentDidMount() {
-    const listContainer = document.getElementById("listContainer");
-
-    listContainer.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      const afterElement = getDragAfterElement(listContainer, e.clientY);
-      const listItem = document.querySelector(".listItem--dragging");
-
-      if (afterElement == null) {
-        listContainer.appendChild(listItem);
-      } else {
-        listContainer.insertBefore(listItem, afterElement);
-      }
-
-      const items = [...this.state.items];
-      const draggedItemIndex = items.findIndex(
-        (item) => item.id === listItem.id
-      );
-      const [draggedItem] = items.splice(draggedItemIndex, 1);
-      items.splice(
-        [...listContainer.children].indexOf(listItem),
-        0,
-        draggedItem
-      );
-
-      // this.setState({
-      //   items: items,
-      // });
-    });
-
-    function getDragAfterElement(container, y) {
-      const draggableElements = [
-        ...container.querySelectorAll(".listItem:not(.listItem--dragging)"),
-      ];
-      return draggableElements.reduce(
-        (closest, child) => {
-          const box = child.getBoundingClientRect();
-          const offset = y - box.top - box.height / 2;
-          if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-          } else {
-            return closest;
-          }
-        },
-        { offset: Number.NEGATIVE_INFINITY }
-      ).element;
-    }
   }
 
   handleTodoInput = ({ target: { value } }) =>
@@ -157,24 +112,102 @@ class ToDo extends React.Component {
           autoComplete="off"
         />
 
-        <div className="todoListWrapper">
-          <ul id="listContainer" className="todoList">
-            {items.map((item, index) => (
-              <TodoItem
-                key={item.id}
-                item={item}
-                handleToggleCompleted={this.handleToggleCompleted}
-                handleDeleteItem={this.handleDeleteItem}
-                index={index}
-              />
-            ))}
-          </ul>
-          <ListOptions
-            className="btn btn--transparent"
-            itemsLeft={itemsLength}
-            handleFiltered={this.handleFiltered}
-          />
-        </div>
+        <DragDropContext
+          onDragEnd={(param) => {
+            const srcIndex = param.source.index;
+            const destIndex = param.destination.index;
+            this.setState((prev) => {
+              const items = [...prev.items];
+              const [removed] = items.splice(srcIndex, 1);
+              items.splice(destIndex, 0, removed);
+              return { items };
+            });
+          }}
+        >
+          <div className="todoListWrapper">
+            <Droppable droppableId="droppable-1">
+              {(provided, _) => (
+                <ul
+                  id="listContainer"
+                  className="todoList"
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                >
+                  {items.map((item, index) => (
+                    <Draggable
+                      key={item.id}
+                      draggableId={"draggable-" + item.id}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <div
+                          key={item.id}
+                          className="listItem"
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                          style={{
+                            ...provided.draggableProps.style,
+                            opacity: snapshot.isDragging ? "0.7" : "1",
+                            boxShadow: snapshot.isDragging
+                              ? "0 0 0.4rem hsla(280, 87%, 65%, 0.8)"
+                              : "none",
+                          }}
+                        >
+                          <div className="completeItem">
+                            <Button
+                              onClick={() =>
+                                this.handleToggleCompleted(item.id)
+                              }
+                              className={
+                                item.completed
+                                  ? "btn btn--completeItem showCompletedBackground"
+                                  : "btn btn--completeItem"
+                              }
+                            />
+
+                            <img
+                              className={
+                                item.completed
+                                  ? "completeItem__checkMark showCheckMark"
+                                  : "completeItem__checkMark"
+                              }
+                              src={checkMark}
+                              alt="checked"
+                            />
+                          </div>
+
+                          <li
+                            className={
+                              item.completed
+                                ? "listItem__item complete"
+                                : "listItem__item"
+                            }
+                          >
+                            {item.text}
+                          </li>
+
+                          <img
+                            onClick={() => this.handleDeleteItem(index)}
+                            className="listItem__delete"
+                            src={cross}
+                            alt="delete"
+                          />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </ul>
+              )}
+            </Droppable>
+            <ListOptions
+              className="btn btn--transparent"
+              itemsLeft={itemsLength}
+              handleFiltered={this.handleFiltered}
+            />
+          </div>
+        </DragDropContext>
       </form>
     );
   }
