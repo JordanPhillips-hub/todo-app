@@ -38,7 +38,9 @@ class ToDo extends React.Component {
         draggedItem
       );
 
-      // this.setState({ items });
+      // this.setState({
+      //   items: items,
+      // });
     });
 
     function getDragAfterElement(container, y) {
