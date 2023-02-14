@@ -5,6 +5,7 @@
   @include custom-border-top($radius: var(--br-sm), $top-l: 0, $top-r: 0);
   margin-bottom: 8px;
   box-shadow: 0px 35px 50px var(--clr-list-shadow);
+
   .itemsLeft {
     font-size: px-rem(14);
   }

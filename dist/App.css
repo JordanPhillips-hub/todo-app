@@ -62,7 +62,6 @@ ol {
 }
 
 .appBg {
-  background-image: url("../../assets/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-size: 100% 300px;
   background-color: var(--clr-body-bg);

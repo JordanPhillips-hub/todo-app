@@ -1,3 +1,5 @@
+@use "../styles/variables.scss" as *;
+
 @mixin todo-item-styles() {
   background-color: var(--clr-item-bg);
   color: var(--clr-text-primary);

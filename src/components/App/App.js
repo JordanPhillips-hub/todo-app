@@ -1,10 +1,13 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import useLocalStorage from "use-local-storage";
 import Todo from "../Todo/Todo";
 import Moon from "../../assets/images/icon-moon.svg";
 import Sun from "../../assets/images/icon-sun.svg";
-import lightBG from '../../assets/images/bg-desktop-light.jpg';
-import darkBG from '../../assets/images/bg-desktop-dark.jpg';
+import desktopLightBG from '../../assets/images/bg-desktop-light.jpg';
+import desktopDarkBG from '../../assets/images/bg-desktop-dark.jpg';
+import mobileLightBG from '../../assets/images/bg-mobile-light.jpg';
+import mobileDarkBG from '../../assets/images/bg-mobile-dark.jpg';
 import "./App.scss";
 
 /* This component is the main component of the application and serves as a container
@@ -12,28 +15,38 @@ import "./App.scss";
  that switches between the light and dark themes. */
 
 function App() {
-  // State hook that uses local storage to store the current theme
-  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  // Custom hook that uses local storage to store the theme
+  const [theme, setTheme] = useLocalStorage("theme", "dark");
+  // State that stores the window width
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  /* This function is triggered by a click on the toggle icon in the header. It changes
-    the background image and the current theme stored in local storage. */
+  // Function that toggles the theme
   const toggleTheme = () => {
     const appBg = document.querySelector('[data-theme]');
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
 
-    theme === 'dark'
-      ? appBg.style.backgroundImage = `url(${lightBG})`
-      : appBg.style.backgroundImage = `url(${darkBG})`;
+    const desktopBg = newTheme === "dark" ? desktopDarkBG : desktopLightBG;
+    const mobileBg = newTheme === "dark" ? mobileDarkBG : mobileLightBG;
+    const bgImage = windowWidth <= 600 ? mobileBg : desktopBg;
+    appBg.style.backgroundImage = `url(${bgImage})`;
   };
 
-  // Adds an event listener that sets the background image when the window is loaded
-  window.addEventListener(('load'), function () {
+  // Event listener that updates the window width state
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Effect that changes the background image based on the current theme
+  useEffect(() => {
     const appBg = document.querySelector('[data-theme]');
-    theme === 'dark'
-      ? appBg.style.backgroundImage = `url(${darkBG})`
-      : appBg.style.backgroundImage = `url(${lightBG})`;
-  });
+    const desktopBg = theme === "dark" ? desktopDarkBG : desktopLightBG;
+    const mobileBg = theme === "dark" ? mobileDarkBG : mobileLightBG;
+    const bgImage = windowWidth <= 600 ? mobileBg : desktopBg;
+    appBg.style.backgroundImage = `url(${bgImage})`;
+  }, [theme, windowWidth]);
 
   return (
     <div id="AppBg" className="appBg" data-theme={theme}>
