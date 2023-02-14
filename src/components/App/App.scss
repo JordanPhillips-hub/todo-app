@@ -2,7 +2,6 @@
 @use "../../styles/styles.scss" as *;
 
 .appBg {
-  // Test Height
   background-image: url("../../assets/images/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-size: 100% 300px;
@@ -11,6 +10,7 @@
 
   .app {
     @include grid-item($place: center, $gap-r: 40px, $gap-c: 0);
+
     background-color: transparent;
     max-width: 564px;
     padding-top: 70px;
@@ -23,6 +23,7 @@
 
     header {
       @include flex-item($gap: 0, $justify: space-between);
+
       h1 {
         color: var(--clr-white);
         font-size: px-rem(40);

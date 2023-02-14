@@ -1,7 +1,9 @@
 import Button from "../Buttons/Button";
 import "../ListOptions/ListOptions.scss";
 
+// ListOptions component displays the count of items left and options to filter the todos.
 const ListOptions = ({ itemsLeft, className, filterTodos }) => {
+  // Array of options to filter the todos.
   const activeOptions = ["All", "Active", "Completed", "Clear Completed"];
 
   return (
