@@ -67,6 +67,7 @@ ol {
   background-size: 100% 300px;
   background-color: var(--clr-body-bg);
   min-height: 100vh;
+  background-color: red;
 }
 .appBg .app {
   display: grid;

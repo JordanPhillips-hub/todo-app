@@ -6,6 +6,7 @@
   background-size: 100% 300px;
   background-color: var(--clr-body-bg);
   min-height: 100vh;
+  background-color: red;
 
   .app {
     @include grid-item($place: center, $gap-r: 40px, $gap-c: 0);
