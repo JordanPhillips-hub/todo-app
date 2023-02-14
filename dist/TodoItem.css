@@ -10,6 +10,7 @@
   --clr-body-bg: hsl(0, 0%, 98%);
   --clr-completed-item: hsl(233, 11%, 84%);
   --clr-list-shadow: hsl(210, 20%, 80%, 0.5);
+  --clr-br-sm: 5px;
   --br-sm: 5px;
 }
 
