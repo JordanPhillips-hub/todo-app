@@ -51,6 +51,10 @@
 }
 .listItem .completeItem {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 }
 .listItem .completeItem :hover, .listItem .completeItem :focus {
   outline: none;
@@ -60,8 +64,6 @@
 .listItem .completeItem__checkMark {
   transform: scale(0);
   position: absolute;
-  right: 7px;
-  bottom: 7px;
   z-index: 1;
   pointer-events: none;
 }

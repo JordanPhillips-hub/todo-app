@@ -25,6 +25,7 @@
 
   .completeItem {
     position: relative;
+    @include flex-item($gap: 0, $justify: center);
     & :hover,
     & :focus {
       outline: none;
@@ -39,8 +40,6 @@
     &__checkMark {
       transform: scale(0);
       position: absolute;
-      right: 7px;
-      bottom: 7px;
       z-index: 1;
       pointer-events: none;
     }
