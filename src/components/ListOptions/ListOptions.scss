@@ -4,7 +4,7 @@
   @include flex-item($gap: 0, $justify: space-between);
   @include custom-border-top($radius: var(--br-sm), $top-l: 0, $top-r: 0);
   margin-bottom: 8px;
-
+  box-shadow: 0px 35px 50px var(--clr-list-shadow);
   .itemsLeft {
     font-size: px-rem(14);
   }
@@ -18,10 +18,23 @@
         color: var(--clr-text-primary);
       }
     }
+  }
+}
 
-    & :last-child {
-      font-weight: 400;
-      margin-left: 38px;
+.mobileListOptions {
+  @include flex-item($gap: 0, $justify: center);
+  margin-top: 16px;
+  box-shadow: 0px 35px 50px var(--clr-list-shadow);
+  border-radius: var(--br-sm);
+
+  .mobileActiveOptions {
+    @include flex-item($gap: 18px, $justify: initial);
+    & button {
+      font-weight: 700;
+
+      &:hover {
+        color: var(--clr-text-primary);
+      }
     }
   }
 }

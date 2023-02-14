@@ -1,7 +1,7 @@
 .todo {
   width: inherit;
 }
-.todo :is(.todo__input, .listItem, .listOptions) {
+.todo :is(.todo__input, .listItem, .listOptions, .mobileListOptions) {
   background-color: var(--clr-item-bg);
   color: var(--clr-text-primary);
   font-size: 1.125rem;
@@ -19,14 +19,8 @@
   box-shadow: 0 0 10px var(--clr-text-primary);
   transform: scale(1.02);
 }
-.todo .todoListWrapper {
-  box-shadow: 0px 35px 50px var(--clr-list-shadow);
-  border-radius: var(--br-sm);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
 .todo .todoList :first-child.listItem {
   border-radius: 0;
   border-top-left-radius: var(--br-sm);
   border-top-right-radius: var(--br-sm);
-}/*# sourceMappingURL=ToDo.css.map */
+}/*# sourceMappingURL=Todo.css.map */

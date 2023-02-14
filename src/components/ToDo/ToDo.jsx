@@ -138,41 +138,39 @@ class ToDo extends React.Component {
             });
           }}
         >
-          <div className="todoListWrapper">
-            <Droppable droppableId="droppable-1">
-              {(provided, _) => (
-                // The list of to-do items.
-                <ul
-                  id="listContainer"
-                  className="todoList"
-                  ref={provided.innerRef}
-                  // This prop is required for the Droppable component to work.
-                  {...provided.droppableProps}
-                >
-                  {items.map((item, index) => (
-                    // The to-do item component.
-                    <TodoItem
-                      key={item.id}
-                      item={item}
-                      index={index}
-                      deleteTodo={() => this.deleteTodo(index)}
-                      toggleTodoCompletion={() =>
-                        this.toggleTodoCompletion(item.id)
-                      }
-                    />
-                  ))}
-                  {provided.placeholder}
-                </ul>
-              )}
-            </Droppable>
+          <Droppable droppableId="droppable-1">
+            {(provided, _) => (
+              // The list of to-do items.
+              <ul
+                id="listContainer"
+                className="todoList"
+                ref={provided.innerRef}
+                // This prop is required for the Droppable component to work.
+                {...provided.droppableProps}
+              >
+                {items.map((item, index) => (
+                  // The to-do item component.
+                  <TodoItem
+                    key={item.id}
+                    item={item}
+                    index={index}
+                    deleteTodo={() => this.deleteTodo(index)}
+                    toggleTodoCompletion={() =>
+                      this.toggleTodoCompletion(item.id)
+                    }
+                  />
+                ))}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
 
-            <ListOptions
-              // The list options component.
-              className="btn btn--transparent"
-              itemsLeft={itemsLength}
-              filterTodos={this.filterTodos}
-            />
-          </div>
+          <ListOptions
+            // The list options component.
+            className="btn btn--transparent"
+            itemsLeft={itemsLength}
+            filterTodos={this.filterTodos}
+          />
         </DragDropContext>
       </form>
     );
