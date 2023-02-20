@@ -5,7 +5,7 @@ This is a solution to the [Todo-app challenge on Frontend Mentor](https://www.fr
 Todo App allows you to add, delete and reorder tasks with drag and drop functionality. The tasks are displayed in a list format and can be marked as completed or incomplete.  
 
 Screenshot
-![](./assets/images/screenshot.png)
+![](todo-app-screenshot.png)
 ------------
 
 Installation
