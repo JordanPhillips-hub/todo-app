@@ -36,7 +36,7 @@
   box-shadow: 0px 35px 50px var(--clr-list-shadow);
 }
 .listOptions .itemsLeft {
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 .listOptions .activeOptions {
   display: flex;
