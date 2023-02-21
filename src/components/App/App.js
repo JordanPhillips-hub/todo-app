@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import useLocalStorage from "use-local-storage";
-import Todo from "../Todo/Todo";
+import ToDo from "../ToDo/ToDo";
 import Moon from "../../assets/images/icon-moon.svg";
 import Sun from "../../assets/images/icon-sun.svg";
 import desktopLightBG from '../../assets/images/bg-desktop-light.jpg';
@@ -62,7 +62,7 @@ function App() {
         </header>
 
         <main>
-          <Todo />
+          <ToDo />
         </main>
 
         <footer>
